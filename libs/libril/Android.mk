@@ -36,7 +36,7 @@ ril_shared_libs := \
     libhwbinder
 
 ril_inc := external/nanopb-c \
-    $(LOCAL_PATH)/../include
+    $(LOCAL_PATH)/include
 
 ril_cflags := -Wno-unused-parameter -DANDROID_SIM_COUNT_2 -DANDROID_MULTI_SIM
 
@@ -65,7 +65,7 @@ LOCAL_STATIC_LIBRARIES := \
 
 LOCAL_CFLAGS := $(ril_cflags)
 LOCAL_C_INCLUDES += $(ril_inc)
-LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/../include
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 LOCAL_MODULE:= libril
 LOCAL_CLANG := true
 LOCAL_SANITIZE := integer

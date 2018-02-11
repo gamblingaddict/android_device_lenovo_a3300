@@ -50,6 +50,10 @@ BOARD_MKBOOTIMG_ARGS := \
     --ramdisk_offset 0x01000000 \
     --tags_offset 0x00000100
 
+# RIL
+BOARD_PROVIDES_RILD := true
+BOARD_PROVIDES_LIBRIL := true
+
 # Wifi
 BOARD_WLAN_DEVICE		 := MediaTek
 WPA_SUPPLICANT_VERSION		 := VER_0_8_X
