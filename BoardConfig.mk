@@ -1,0 +1,18 @@
+DEVICE_PATH := device/lenovo/a3300
+
+# Platform
+TARGET_BOARD_PLATFORM := mt6582
+
+# Bootloader
+TARGET_NO_BOOTLOADER		:= true
+TARGET_BOOTLOADER_BOARD_NAME	:= A3300-GV
+
+# Architecture
+TARGET_ARCH			:= arm
+TARGET_ARCH_VARIANT		:= armv7-a-neon
+TARGET_ARCH_VARIANT_CPU		:= cortex-a7
+TARGET_CPU_ABI			:= armeabi-v7a
+TARGET_CPU_ABI2			:= armeabi
+TARGET_CPU_VARIANT		:= generic
+TARGET_CPU_VARIANT_RUNTIME	:= cortex-a7
+TARGET_CPU_MEMCPY_OPT_DISABLE	:= true
