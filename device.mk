@@ -1,3 +1,7 @@
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/seccomp,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE		:= a3300
 PRODUCT_BRAND		:= Lenovo
