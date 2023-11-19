@@ -10,6 +10,7 @@ PRODUCT_COPY_FILES += \
 # Wifi
 PRODUCT_PACKAGES += \
     libwifi-hal-mt66xx \
+    lib_driver_cmd_mt66xx \
     6620_launcher
 
 # Bluetooth
