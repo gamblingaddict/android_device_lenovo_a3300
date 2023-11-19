@@ -1,0 +1,28 @@
+cc_library_shared {
+    name: "libbluetooth_mtk",
+    srcs: [
+	"mtk.c",
+	"radiomgr.c",
+	"radiomod.c",
+    ],
+    shared_libs: [
+	"liblog",
+	"libcutils",
+	"libnvram",
+    ],
+    include_dirs: ["system/bt/hci/include"],
+    local_include_dirs: ["include"],
+    proprietary: true,
+}
+
+cc_library_shared {
+    name: "libbt-vendor",
+    srcs: ["bt_drv.c"],
+    shared_libs: [
+	"liblog",
+	"libbluetooth_mtk",
+    ],
+    include_dirs: ["system/bt/hci/include"],
+    local_include_dirs: ["include"],
+    proprietary: true,
+}
