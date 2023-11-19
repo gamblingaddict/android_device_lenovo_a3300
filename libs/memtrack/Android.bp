@@ -1,0 +1,11 @@
+cc_library_shared {
+    name: "memtrack.mt6582",
+    vendor: true,
+    relative_install_path : "hw",
+    srcs: [
+	"memtrack_mtk.c",
+	"memtrack_graphic.c"
+    ],
+    include_dirs: ["hardware/libhardware/include/"],
+    shared_libs: ["liblog"],
+}
