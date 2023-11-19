@@ -1,0 +1,118 @@
+on early-init
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+    chown root system /proc/lk_env
+    chmod 0660 /proc/lk_env
+
+on fs
+# Start HW service manager early
+    start hwservicemanager
+
+on late-fs
+# Start services for Boot Animation
+    start servicemanager
+    start surfaceflinger
+    start bootanim
+
+# Make sure HW service manager started and start required HAL services
+    wait_for_prop hwservicemanager.ready true
+    start configstore-hal-1-0
+    start gralloc-2-0
+
+# Mount RW partitions which need run fsck
+    mount_all /vendor/etc/fstab.mt6582 --late
+
+on post-fs-data
+# Allow writing to the kernel trace log.
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
+# Create basic filesystem structure
+    mkdir /data/misc/touchpanel 0755 root system
+    mkdir /data/misc/sensor 0664 system system
+
+# Lights
+    chown root radio /sys/class/leds/lcd-backlight/brightness
+    chown root radio /sys/class/leds/lcd-backlight/duty
+    chown root radio /sys/class/leds/lcd-backlight/div
+    chown system system /sys/class/leds/lcd-backlight/trigger
+    chown system system /sys/class/leds/button-backlight/trigger
+    chown system system /sys/class/leds/keyboard-backlight/trigger
+    chown system system /sys/class/leds/jogball-backlight/trigger
+    chown system system /sys/class/leds/red/trigger
+    chown system system /sys/class/leds/green/trigger
+    chown system system /sys/class/leds/blue/trigger
+    chown system system /sys/class/leds/greenled/brightness
+    chown system system /sys/class/leds/greenled/trigger
+    chmod 0664 /sys/class/leds/lcd-backlight/brightness
+    chmod 0664 /sys/class/leds/greenled/trigger
+    chmod 0664 /sys/class/leds/greenled/brightness
+
+# GED
+    chmod 0666 /proc/ged
+    chown root system /proc/ged
+
+# Watchdog kicker
+    write /proc/wdk "0 20 30"
+
+# RTC
+    mkdir /data/misc/rtc 0770 system system
+
+# Accdet
+    chown root radio /sys/devices/platform/Accdet_Driver/driver/accdet_call_state
+
+# Kpd
+    chown radio radio /sys/devices/platform/mtk-kpd/driver/kpd_call_state
+
+# Charging Battery
+    chown radio radio /sys/devices/platform/battery/Charging_CallState
+
+    mkdir /data/amit/ 0770 system system
+    mkdir /data/misc/akmd 0770 system system
+    mkdir /data/acdapi/ 0770 system system
+    chmod 0660 /data/misc/acdapi/calib.dat
+    chmod 0660 /data/misc/acdapi/param.dat
+    chmod 0660 /data/misc/acdapi/sensors.dat
+    chown system /sys/class/input/input5/enable
+    chown system /sys/class/input/input5/delay
+    chown system /sys/class/input/input5/wake
+    chown system /sys/class/input/input3/enable
+    chown system /sys/class/input/input3/wake
+    chown system /sys/class/input/input4/offsets
+    chown system /sys/class/input/input4/dynamic_matrix
+
+# SPM SODI Enable
+    chown media /proc/mcdi/sodi_en
+    chmod 0664 /proc/mcdi/sodi_en
+
+# EM eint
+    chown root diag /sys/bus/platform/drivers/eint/current_eint
+
+# pmu
+    chown root radio /sys/devices/platform/mt-pmic/pmic_access
+    chmod 0664 /sys/devices/platform/mt-pmic/pmic_access
+
+# For ppp options file
+    mkdir /data/misc/ppp 0770 bluetooth bluetooth
+
+# Video
+    chmod 0666 /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+    chown media media /sys/bus/platform/drivers/mem_bw_ctrl/concurrency_scenario
+
+    mkdir /data/sec 0750 system system
+
+# Tweak background writeout
+    write /proc/sys/vm/dirty_writeback_centisecs 300
+
+# Encrypt phone function
+    setprop vold.post_fs_data_done 1
+
+# Enable ZRAM on boot_complete
+on property:sys.boot_completed=1
+    swapon_all /vendor/etc/fstab.mt6582
+
+service charger /system/bin/charger
+    class charger
+    user system
+    group system graphics input
+    capabilities SYS_BOOT
+    seclabel u:r:healthd:s0

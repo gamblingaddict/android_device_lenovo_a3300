@@ -1,3 +1,7 @@
+# Init
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/init,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor
