@@ -38,7 +38,7 @@ int graphic_memtrack_get_memory(pid_t pid, enum memtrack_type type,
         FILE *fp;
         char line[1024];
         char tmp[1024];
-        size_t accounted_size = 0;
+        //size_t accounted_size = 0;
         size_t unaccounted_size = 0;
         char *dir_path = "/d/ion/";
 
@@ -90,7 +90,7 @@ int graphic_memtrack_get_memory(pid_t pid, enum memtrack_type type,
                         size_t size;
                         int handle_count;
                         int ret;
-                        int count = 0;
+                        //int count = 0;
 
                         if (fgets(line, sizeof(line), fp) == NULL)
                                 break;

@@ -22,6 +22,10 @@
 
 int mtk_memtrack_init(const struct memtrack_module *module)
 {
+    if (!module) {
+	return -1;
+    }
+
     graphic_memtrack_init();
     return 0;
 }
@@ -32,6 +36,10 @@ int mtk_memtrack_get_memory(const struct memtrack_module *module,
                                 struct memtrack_record *records,
                                 size_t *num_records)
 {
+    if (!module) {
+	return -1;
+    }
+
     if (type == MEMTRACK_TYPE_GRAPHICS) {
         return graphic_memtrack_get_memory(pid, type, records, num_records);
     }
@@ -44,17 +52,17 @@ static struct hw_module_methods_t memtrack_module_methods = {
 };
 
 struct memtrack_module HAL_MODULE_INFO_SYM = {
-    common: {
-        tag: HARDWARE_MODULE_TAG,
-        module_api_version: MEMTRACK_MODULE_API_VERSION_0_1,
-        hal_api_version: HARDWARE_HAL_API_VERSION,
-        id: MEMTRACK_HARDWARE_MODULE_ID,
-        name: "MediaTek Memory Tracker HAL",
-        author: "The Android Open Source Project",
-        methods: &memtrack_module_methods,
+    .common = {
+        .tag = HARDWARE_MODULE_TAG,
+        .module_api_version = MEMTRACK_MODULE_API_VERSION_0_1,
+        .hal_api_version = HARDWARE_HAL_API_VERSION,
+        .id = MEMTRACK_HARDWARE_MODULE_ID,
+        .name = "MediaTek Memory Tracker HAL",
+        .author = "The Android Open Source Project",
+        .methods = &memtrack_module_methods,
     },
 
-    init: mtk_memtrack_init,
-    getMemory: mtk_memtrack_get_memory,
+    .init = mtk_memtrack_init,
+    .getMemory = mtk_memtrack_get_memory,
 };
 
