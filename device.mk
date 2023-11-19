@@ -7,6 +7,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/init,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
 
+# Wifi
+PRODUCT_PACKAGES += \
+    libwifi-hal-mt66xx \
+    6620_launcher
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor
