@@ -1,0 +1,13 @@
+cc_prebuilt_library_static {
+    name: "libepos",
+    vendor: true,
+    arch: {
+        arm: {
+            srcs: ["arm/libepos.a"]
+        },
+        arm64: {
+            srcs: ["libepos.a"]
+        },
+    },
+    strip: { none: true }
+}
