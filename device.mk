@@ -6,9 +6,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.mt6582
 
-# Display
+# Brightness
 PRODUCT_PACKAGES += \
     lights.mt6582
+
+# Graphics
+PRODUCT_PACKAGES += \
+    hwcomposer.mt6582 \
+    gralloc.mt6582 \
+    memtrack.mt6582
 
 # Seccomp
 PRODUCT_COPY_FILES += \
