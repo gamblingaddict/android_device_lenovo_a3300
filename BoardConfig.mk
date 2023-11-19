@@ -35,3 +35,17 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE   := ext4
 
 # Configs
 TARGET_RECOVERY_FSTAB		:= $(DEVICE_PATH)/configs/fstab.$(TARGET_BOARD_PLATFORM)
+
+# Kernel config
+TARGET_KERNEL_CONFIG := lineage_a3300_defconfig
+TARGET_KERNEL_SOURCE := kernel/lenovo/a3300-again
+BOARD_KERNEL_IMAGE_NAME := zImage
+
+# Boot image config
+BOARD_MKBOOTIMG_ARGS := \
+    --board $(TARGET_BOARD_PLATFORM) \
+    --base 0x10000000 \
+    --pagesize 2048 \
+    --kernel_offset 0x00008000 \
+    --ramdisk_offset 0x01000000 \
+    --tags_offset 0x00000100
