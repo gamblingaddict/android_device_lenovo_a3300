@@ -1,0 +1,226 @@
+#
+# Partitions
+#
+
+/dev/preloader			0640	root		system
+/dev/bootimg			0640	root		system
+/dev/recovery			0640	root		system
+/dev/sec_ro			0640	root		system
+/dev/kb				0660	root		system
+/dev/dkb			0660	root		system
+/dev/seccfg			0660	root		system
+/dev/pro_info			0660	root		system
+/dev/logo			0660	root		system
+/dev/otp			0660	root		nvram
+/dev/nvram			0660	root		system
+/dev/misc			0660	root		system
+/dev/block/mmcblk0		0660	root		system
+/dev/block/mmcblk0boot0		0660	root		system
+/dev/misc-sd			0660	root		system
+/dev/ztecfg			0600	system		system
+/dev/uboot			0600	system		system
+
+#
+# Radios
+#
+
+# Wifi
+/dev/stpwmt			0660	system		system
+/dev/wmtdetect			0660	system		system
+/dev/wmtWifi			0666	wifi		wifi
+
+# BT
+/dev/stpbt			0660	bluetooth	bluetooth
+/dev/ebc			0660	media		media
+/dev/ttyGS2			0660	bluetooth	radio
+/dev/btif			0600	system		system
+/dev/ampc0			0660	bluetooth	bluetooth
+/dev/hid-keyboard		0660	bluetooth	bluetooth
+
+# FM
+/dev/fm				0777	system		media
+
+# RIL
+/dev/ttyMT*			0660	system		system
+/dev/ccci*			0660	radio		radio
+/dev/ttyC*			0660	radio		radio
+/dev/eemcs*			0660	radio		radio
+/dev/ccci_pcm_rx		0660	media		media
+/dev/ccci_pcm_tx		0660	media		media
+
+# ATCID
+/dev/ttyGS*			0660	system		root
+
+# VIA MODEM
+/dev/ttySDIO*			0660	radio		sdcard_rw
+/dev/ttyRB*			0660	radio		radio
+
+# Radio
+/dev/radio			0770	radio		radio
+
+# GPS
+/dev/gps			0660	gps		system
+/dev/stpgps			0660	gps		gps
+
+# Rfkill
+/dev/rfkill			0660	root		root
+
+#
+# Graphics
+#
+
+# SGX
+/dev/pvrsrvkm			0666	root		root
+/dev/pvr_sync			0666	root		root
+
+# Mali
+/dev/mali			0666	system		graphics
+
+# G2D
+/dev/mtkg2d			0660	system		media
+
+# Misc
+/dev/graphics/fb0		0660	system		graphics
+/dev/mtkfb_vsync		0660	system		graphics
+/dev/sw_sync			0660	system		graphics
+
+# ION
+/dev/ion			0666	system		graphics
+
+# DISP
+/dev/mtk_disp			0440	root		root
+/dev/mtk_ovl			0440	system		system
+
+# TV-out
+/dev/TV-out			0664	root		root
+
+# HDMI
+/dev/hdmitx			0660	media		system
+
+# CVBS
+/dev/cvbs			0660	media		system
+
+#
+# Media
+#
+
+# Video
+/dev/Vcodec			0666	media		media
+/dev/MTK_SMI			0666	media		media
+
+# MTK In-House TEE
+/dev/trustzone			0660	root		drmrpc
+/dev/tzmem			0660	root		drmrpc
+
+# M4U
+/dev/M4U_device			0444	system		camera
+
+# Misc
+/dev/pmem_multimedia		0660	system		media
+
+#
+# Sensors
+#
+
+/dev/hwmsensor			0660	system		system
+/dev/gsensor			0660	system		system
+/dev/aal_als			0660	system		system
+
+# Touch
+/dev/touch			0660	root		system
+/dev/hotknot			0660	root		system
+
+# NFC
+/dev/msr3110			0666	root		root
+/dev/mt6605			0660	nfc		radio
+
+# GPIO
+/dev/mtgpio			0600	radio		root
+
+# RTC
+/dev/rtc0			0660	system		system
+
+# IR  	
+/dev/ir_dev			0660	system		system
+
+# Camera
+/dev/camera-sysram		0660	system		camera
+/dev/camera-isp			0660	system		camera
+/dev/camera-pipemgr		0660	system		camera
+/dev/kd_camera_hw		0660	system		camera
+/dev/kd_camera_flashlight	0660	system		camera
+/dev/kd_camera_hw_bus2		0660	system		camera
+/dev/FM50AF			0660	system		camera
+/dev/DW9718AF			0660	system		camera
+/dev/S5K3H2YXAF			0660	system		camera
+/dev/CAM_CAL_DRV		0660	system		camera
+/dev/mtk_jpeg			0440	system		camera
+
+# Webcam
+/dev/video0			0660	system		camera
+/dev/video1			0660	system		camera
+/dev/video2			0660	system		camera
+
+# MATV
+/dev/MATV			0660	system		media
+
+# Android SEC related device nodes
+/dev/sec			0660	root		system
+
+# Device info /proc interface
+/dev/devmap			0440	root		system
+
+#
+# Miscellaneous
+#
+
+# Logging
+/dev/xLog			0600	root		root
+/dev/log/ksystem		0600	root		log
+
+# RTC
+/dev/rtc0			0660	system		system
+
+# Powerkey monitor hang
+/dev/kick_powerkey		0600	system		system
+
+# Sched
+/dev/mtk_sched			0660	system		media
+
+# OTG test
+/dev/mt_otg_test		0660	root		radio
+
+# MDP
+/dev/mt-mdp			0660	system		media
+
+# RT Monitor
+/dev/RT_Monitor			0600	system		system
+
+# Ptmx
+/dev/ptmx			0666	root		radio
+
+# Uinput
+/dev/uinput			0660	system		bluetooth
+
+# UIBC
+/dev/uibc			0660	system		media
+
+# ALMK
+/dev/mtk_almk			0440	root		root
+
+# uio0
+/dev/uio0			0660	root		root
+
+# BDctrl
+/dev/bdctrl			0600	system		system
+
+# Make ttyUSB* read/writeable
+/dev/bus/usb/*			0660   root       usb
+/dev/ttyUSB*			0660   radio      radio
+
+/sys/devices/platform/leds-mt65xx/leds/green	delay_on	0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/green	delay_off	0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/red	delay_on	0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/red	delay_off	0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/blue	delay_on	0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/blue	delay_off	0664  system   system

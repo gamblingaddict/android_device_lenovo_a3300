@@ -1,4 +1,9 @@
 # Init
+PRODUCT_PACKAGES += \
+    fstab.mt6582 \
+    fstab.mt6582.ramdisk \
+    ueventd.mt6582.rc
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/init,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
 
