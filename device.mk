@@ -6,6 +6,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.mt6582
 
+# Display
+PRODUCT_PACKAGES += \
+    lights.mt6582
+
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/seccomp,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
