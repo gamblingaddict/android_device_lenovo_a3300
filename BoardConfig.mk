@@ -54,6 +54,9 @@ BOARD_MKBOOTIMG_ARGS := \
     --ramdisk_offset 0x01000000 \
     --tags_offset 0x00000100
 
+# Memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # RIL
 BOARD_PROVIDES_RILD := true
 BOARD_PROVIDES_LIBRIL := true
