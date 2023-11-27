@@ -42,6 +42,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <sys/syscall.h>
 
 //For directory operation
 #include <dirent.h>
@@ -53,36 +54,19 @@ extern int init_module(void *, unsigned long, const char *);
 //insmod
 static int insmod(const char *filename, const char *args)
 {
-    void *module;
-    unsigned int size;
-    int ret = -1;
-	int retry = 10;
-
-	printf("filename(%s)\n",filename);
-
-    module = load_file(filename, &size);
-    if (!module)
-    {
-    	printf("load file fail\n");
+     /* O_NOFOLLOW is removed as wlan.ko is symlink pointing to
+        the vendor specfic file which is in readonly location */
+     int fd = open(filename, O_RDONLY | O_CLOEXEC);
+     if (fd == -1) {
+        ALOGD("insmod: open(\"%s\") failed: %s", filename, strerror(errno));
         return -1;
-    }
-
-	while(retry-- > 0){
-	    ret = init_module(module, size, args);
-
-		if(ret < 0)
-		{
-			printf("insmod module fail(%d)\n",ret);
-			usleep(10000);
-		}
-		else
-			break;
-
-	}
-
-    free(module);
-
-    return ret;
+     }
+     int rc = syscall(__NR_finit_module, fd, args, 0);
+     if (rc == -1) {
+       ALOGD("finit_module for \"%s\" failed: %s", filename, strerror(errno));
+     }
+     close(fd);
+     return rc;
 }
 
 

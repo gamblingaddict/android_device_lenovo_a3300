@@ -4,6 +4,7 @@
 //#include <syslog.h>
 #include <private/android_filesystem_config.h>
 #include <utils/Log.h>
+#include <string.h>
 
 #ifdef LOG_TAG
 #undef LOG_TAG

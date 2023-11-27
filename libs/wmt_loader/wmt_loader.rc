@@ -1,0 +1,9 @@
+on boot
+    chown shell system /proc/driver/wmt_dbg
+    chown shell system /proc/driver/wmt_aee
+
+service wmtLoader /vendor/bin/wmt_loader
+    user root
+    group root
+    class main
+    oneshot

@@ -1,4 +1,4 @@
-#include "../src/wmt_ioctl.h"
+#include <wmt_ioctl.h>
 #include <stdio.h>
 #include <errno.h>
 #include <fcntl.h>
