@@ -26,6 +26,9 @@ TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 TARGET_SCREEN_WIDTH := 1024
 TARGET_SCREEN_HEIGHT := 600
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/configs/overlay
+
 # Permissions/features
 PERM_PATH := frameworks/native/data/etc
 PERM_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/permissions
