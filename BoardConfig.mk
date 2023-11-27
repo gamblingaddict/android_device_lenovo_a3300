@@ -60,6 +60,9 @@ BOARD_MKBOOTIMG_ARGS := \
     --ramdisk_offset 0x01000000 \
     --tags_offset 0x00000100
 
+# Legacy blobs
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += /system/bin/mediaserver=22
+
 # Memfd
 TARGET_HAS_MEMFD_BACKPORT := true
 
