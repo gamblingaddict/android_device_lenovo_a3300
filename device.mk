@@ -108,6 +108,16 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service \
+    sensors.wrapper \
+    sensors.mt6582
+
+PRODUCT_COPY_FILES += \
+     $(DEVICE_PATH)/configs/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
