@@ -42,7 +42,6 @@
 #include <fcntl.h>
 #include <arpa/inet.h>
 #include <cutils/properties.h>
-#include <cutils/xlog.h>
 #include <stdio.h>   /* Standard input/output definitions */
 #include <string.h>  /* String function definitions */
 #include <stdlib.h>

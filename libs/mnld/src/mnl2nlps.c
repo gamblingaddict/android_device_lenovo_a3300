@@ -39,13 +39,12 @@
 #if defined(ANDROID)
 #define LOG_TAG "MNLD"
 #include <cutils/sockets.h>
-#include <cutils/xlog.h>     /*logging in logcat*/
 #endif
 
 #if defined(ANDROID)
-#define MND_MSG(fmt, arg ...) XLOGD("%s: " fmt, __FUNCTION__ ,##arg)
-#define MND_ERR(fmt, arg ...) XLOGE("%s: " fmt, __FUNCTION__ ,##arg)
-#define MND_TRC(f)            XLOGD("%s\n", __FUNCTION__)
+#define MND_MSG(fmt, arg ...)
+#define MND_ERR(fmt, arg ...)
+#define MND_TRC(f)
 #define MND_VER(...)          do {} while(0)
 #else
 #define MND_MSG(...) printf(LOG_TAG":" __VA_ARGS__)

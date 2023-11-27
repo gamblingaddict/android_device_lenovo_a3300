@@ -119,9 +119,9 @@
 #define MNL_MON(...) do {printf(MONITOR_TAG __VA_ARGS__); LOGE(__VA_ARGS__);} while(0)
 #define MNL_ERR(...) do {printf(__VA_ARGS__); LOGE(__VA_ARGS__);} while(0)
 */
-#define MNL_MSG(fmt, arg ...) XLOGD("%s: " fmt, __FUNCTION__ ,##arg)
-#define MNL_ERR(fmt, arg ...) XLOGE("%s: " fmt, __FUNCTION__ ,##arg)
-#define MNL_TRC(f)            XLOGD("%s\n", __FUNCTION__) 
+#define MNL_MSG(fmt, arg ...)
+#define MNL_ERR(fmt, arg ...)
+#define MNL_TRC(f)
 #define MNL_VER(...)          do {} while(0) 
 #else /***********************************************************************/
 #define MNL_VER printf

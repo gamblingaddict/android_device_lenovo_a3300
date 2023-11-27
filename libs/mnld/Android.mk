@@ -64,6 +64,7 @@ LOCAL_SRC_FILES := \
          $(MNL_SRC_FILES)
          
 LOCAL_C_INCLUDES:= $(LOCAL_PATH)/inc \
+				   $(LOCAL_PATH)/inc2
 				   $(LOCAL_PATH)/../inc \
 				   $(MTK_PATH_SOURCE)/external/nvram/libnvram \
 

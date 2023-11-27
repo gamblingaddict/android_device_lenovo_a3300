@@ -39,15 +39,14 @@
 * Dependency
 *******************************************************************************/
 #include <time.h>
-#include <cutils/xlog.h>
 #include <hardware/gps.h>
 #include "mtk_gps_type.h"
 
 #define LOG_TAG "mnl_linux"   /*logging in logcat*/
 #if defined(ANDROID)
-#define MNL_MSG(fmt, arg ...) XLOGD("%s: " fmt, __FUNCTION__ ,##arg)
-#define MNL_ERR(fmt, arg ...) XLOGE("%s: " fmt, __FUNCTION__ ,##arg)
-#define MNL_TRC(f)            XLOGD("%s\n", __FUNCTION__) 
+#define MNL_MSG(fmt, arg ...)
+#define MNL_ERR(fmt, arg ...)
+#define MNL_TRC(f)
 #define MNL_VER(...)          do {} while(0) 
 #else
 #define MNL_MSG(...) printf(LOG_TAG":" __VA_ARGS__)
@@ -90,7 +89,7 @@ extern UINT32 assist_data_bit_map;
 #define C_INVALID_TID  -1   /*invalid thread id*/
 #define C_INVALID_FD   -1   /*invalid file handle*/
 #define C_INVALID_SOCKET -1 /*invalid socket id*/
-#define C_INVALID_TIMER -1  /*invalid timer */
+#define C_INVALID_TIMER ((timer_t)NULL)  /*invalid timer */
 /*---------------------------------------------------------------------------*/
 enum { 
     MNL_CMD_UNKNOWN = -1,
