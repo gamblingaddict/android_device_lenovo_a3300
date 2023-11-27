@@ -94,7 +94,8 @@ PRODUCT_PACKAGES += \
     wificond \
     libwifi-hal-mt66xx \
     lib_driver_cmd_mt66xx \
-    6620_launcher
+    6620_launcher \
+    wmt_loader
 
 # Tether
 PRODUCT_PACKAGES += \
