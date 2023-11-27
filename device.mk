@@ -109,6 +109,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    mnld \
     gps.mt6582
 
 # Lights
