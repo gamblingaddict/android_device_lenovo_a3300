@@ -1,3 +1,54 @@
+DEVICE_PATH := device/lenovo/a3300
+VENDOR_PATH := vendor/lenovo/a3300
+
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# Firmware
+$(call inherit-product, $(VENDOR_PATH)/vendor.mk)
+
+# Dalvik/HWUI
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
+
+# Device characteristics
+PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_SHIPPING_API_LEVEL := 21
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
+# Boot Animation
+TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
+TARGET_SCREEN_WIDTH := 1024
+TARGET_SCREEN_HEIGHT := 600
+
+# Permissions/features
+PERM_PATH := frameworks/native/data/etc
+PERM_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/permissions
+
+PRODUCT_COPY_FILES += \
+    $(PERM_PATH)/android.hardware.bluetooth_le.xml:$(PERM_DEST)/android.hardware.bluetooth_le.xml \
+    $(PERM_PATH)/android.hardware.location.gps.xml:$(PERM_DEST)/android.hardware.location.gps.xml \
+    $(PERM_PATH)/android.hardware.touchscreen.multitouch.distinct.xml:$(PERM_DEST)/android.hardware.touchscreen.multitouch.distinct.xml \
+    $(PERM_PATH)/android.hardware.touchscreen.multitouch.jazzhand.xml:$(PERM_DEST)/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    $(PERM_PATH)/android.hardware.touchscreen.multitouch.xml:$(PERM_DEST)/android.hardware.touchscreen.multitouch.xml \
+    $(PERM_PATH)/android.hardware.touchscreen.xml:$(PERM_DEST)/android.hardware.touchscreen.xml \
+    $(PERM_PATH)/android.hardware.usb.accessory.xml:$(PERM_DEST)/android.hardware.usb.accessory.xml \
+    $(PERM_PATH)/android.hardware.usb.host.xml:$(PERM_DEST)/android.hardware.usb.host.xml \
+    $(PERM_PATH)/android.hardware.wifi.direct.xml:$(PERM_DEST)/android.hardware.wifi.direct.xml \
+    $(PERM_PATH)/android.hardware.wifi.xml:$(PERM_DEST)/android.hardware.wifi.xml \
+    $(PERM_PATH)/handheld_core_hardware.xml:$(PERM_DEST)/handheld_core_hardware.xml \
+
+# Chopping block
+PRODUCT_COPY_FILES += \
+    $(PERM_PATH)/android.hardware.sensor.light.xml:$(PERM_DEST)/android.hardware.sensor.light.xml \
+    $(PERM_PATH)/android.hardware.sensor.proximity.xml:$(PERM_DEST)/android.hardware.sensor.proximity.xml \
+    $(PERM_PATH)/android.hardware.telephony.gsm.xml:$(PERM_DEST)/android.hardware.telephony.gsm.xml \
+    $(PERM_PATH)/android.hardware.camera.xml:$(PERM_DEST)/android.hardware.camera.xml \
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.mt6582 \
