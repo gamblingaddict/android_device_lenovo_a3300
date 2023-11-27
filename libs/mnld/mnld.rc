@@ -1,0 +1,16 @@
+on post-fs-data
+    mkdir /data/gps_mnl 0771 gps system
+    mkdir /data/misc/gps 0771 gps system
+    mkdir /data/agps_supl 0771 gps system
+
+    chown gps gps /sys/devices/virtual/gpsdrv/gps/pwrctl
+    chown gps gps /sys/devices/virtual/gpsdrv/gps/suspend
+    chown gps gps /sys/devices/virtual/gpsdrv/gps/state
+    chown gps gps /sys/devices/virtual/gpsdrv/gps/pwrsave
+    chown gps gps /sys/devices/virtual/gpsdrv/gps/status
+
+service mnld /vendor/bin/mnld
+    class main
+    user gps
+    group system gps inet misc sdcard_rw sdcard_r media_rw radio
+    socket mnld stream 660 gps system
