@@ -145,6 +145,17 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     memtrack.mt6582
 
+# OpenGL
+PRODUCT_PACKAGES += \
+    libMali \
+    libEGL_mali \
+    libGLESv1_CM_mali \
+    libGLESv2_mali \
+    libshim_cutils
+
+PRODUCT_COPY_FILES += \
+     $(DEVICE_PATH)/configs/egl.cfg:$(TARGET_COPY_OUT_VENDOR)/lib/egl/egl.cfg
+
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/seccomp,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
