@@ -1,0 +1,27 @@
+From dfbe2fa6fcd41c8bb887b25dd0a02df46a00d889 Mon Sep 17 00:00:00 2001
+From: gamblingaddict <112048350+gamblingaddict@users.noreply.github.com>
+Date: Tue, 14 Nov 2023 18:28:45 +0700
+Subject: [PATCH] Allow perl
+
+This fixes: Disallowed PATH tool "perl" used: []string{"perl", "-e", "print pack(\"a4 L a32 a472\", \"\\x88\\x16\\x88\\x58\", $ARGV[0], $ARGV[1], \"\\xFF\"x472)", "1359010", "ROOTFS"}
+
+Change-Id: I7cd1d7190046c08215c40f61f26fc0f20b5e78f5
+---
+ ui/build/paths/config.go | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/ui/build/paths/config.go b/ui/build/paths/config.go
+index 831a80f..75da26b 100644
+--- a/ui/build/paths/config.go
++++ b/ui/build/paths/config.go
+@@ -95,6 +95,7 @@ var Configuration = map[string]PathConfig{
+ 	"tr":      Allowed,
+ 	"unzip":   Allowed,
+ 	"zip":     Allowed,
++	"perl":    Allowed,
+ 
+ 	// Host toolchain is removed. In-tree toolchain should be used instead.
+ 	// GCC also can't find cc1 with this implementation.
+-- 
+2.34.1
+
