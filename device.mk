@@ -29,6 +29,12 @@ TARGET_SCREEN_HEIGHT := 600
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/configs/overlay
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH) \
+    $(DEVICE_PATH)/libs \
+    $(VENDOR_PATH)/proprietary \
+
 # Permissions/features
 PERM_PATH := frameworks/native/data/etc
 PERM_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/permissions
@@ -100,6 +106,9 @@ PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx \
     6620_launcher \
     wmt_loader
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/wifi,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Tether
 PRODUCT_PACKAGES += \
