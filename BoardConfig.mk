@@ -64,6 +64,11 @@ BOARD_MKBOOTIMG_ARGS := \
 # Legacy blobs
 TARGET_PROCESS_SDK_VERSION_OVERRIDE	+= /system/bin/mediaserver=22
 
+# Fonts
+EXCLUDE_SERIF_FONTS			:= true
+SMALLER_FONT_FOOTPRINT			:= true
+USE_REDUCED_CJK_FONT_WEIGHTS		:= true
+
 # Memfd
 TARGET_HAS_MEMFD_BACKPORT		:= true
 
