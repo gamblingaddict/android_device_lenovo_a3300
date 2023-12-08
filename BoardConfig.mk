@@ -35,11 +35,24 @@ TARGET_FS_CONFIG_GEN			:= $(DEVICE_PATH)/configs/config.fs
 BOARD_CACHEIMAGE_PARTITION_SIZE		:= 132120576
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE	:= ext4
 
+# Reduce space taken by the journal
+BOARD_SYSTEMIMAGE_JOURNAL_SIZE		:= 0
+
+# Build system
+WITHOUT_CHECK_API			:= true
+
+# Binder
+TARGET_USES_64_BIT_BINDER		:= true
+
 # HIDL
 DEVICE_MANIFEST_FILE			:= $(DEVICE_PATH)/configs/manifest.xml
 
 # Fstab
 TARGET_RECOVERY_FSTAB			:= $(DEVICE_PATH)/configs/fstab.$(TARGET_BOARD_PLATFORM)
+
+# OTA
+TARGET_OTA_ASSERT_DEVICE		:= A3300-GV,A3300-HV,a3300
+TARGET_RELEASETOOLS_EXTENSIONS		:= $(DEVICE_PATH)
 
 # Props
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED	:= true
@@ -64,16 +77,29 @@ BOARD_MKBOOTIMG_ARGS := \
 # Legacy blobs
 TARGET_PROCESS_SDK_VERSION_OVERRIDE	+= /system/bin/mediaserver=22
 
+# Vold
+TARGET_USE_CUSTOM_LUN_FILE_PATH		:= /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+
+# Malloc
+MALLOC_SVELTE				:= true
+
 # Fonts
 EXCLUDE_SERIF_FONTS			:= true
 SMALLER_FONT_FOOTPRINT			:= true
 USE_REDUCED_CJK_FONT_WEIGHTS		:= true
+
+# SELinux
+SEPOLICY_VERS				:= 30
+SELINUX_IGNORE_NEVERALLOWS		:= true
 
 # Memfd
 TARGET_HAS_MEMFD_BACKPORT		:= true
 
 # Display
 TARGET_SCREEN_DENSITY			:= 160
+
+# Dexpreopt
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # RIL
 BOARD_PROVIDES_RILD			:= true
