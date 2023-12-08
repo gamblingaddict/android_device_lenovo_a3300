@@ -142,7 +142,9 @@ static int blink_led(int color_id, int level, int onMS, int offMS)
 {
 #define RETRIES 10
     static int redStatus = 0; // 0: off, 1: blink, 2: no blink
+#ifdef HAS_GREEN
     static int greenStatus = 0; // 0: off, 1: blink, 2: no blink
+#endif
 #ifdef HAS_BLUE
     static int blueStatus = 0; // 0: off, 1: blink, 2: no blink
 #endif
@@ -161,6 +163,7 @@ static int blink_led(int color_id, int level, int onMS, int offMS)
 	sprintf(trigger, "%s/trigger", RED_LED_PATH);
 	prevStatus = &redStatus;
 	break;
+#ifdef HAS_GREEN
     case GREEN:
 	sprintf(brightness, "%s/brightness", GREEN_LED_PATH);
 	sprintf(delay_off, "%s/delay_off", GREEN_LED_PATH);
@@ -168,6 +171,7 @@ static int blink_led(int color_id, int level, int onMS, int offMS)
 	sprintf(trigger, "%s/trigger", GREEN_LED_PATH);
 	prevStatus = &greenStatus;
 	break;
+#endif
 #ifdef HAS_BLUE
     case BLUE:
 	sprintf(brightness, "%s/brightness", BLUE_LED_PATH);
@@ -249,7 +253,10 @@ static int set_light_backlight(struct light_device_t *dev,
 static void set_speaker_light_locked(struct light_device_t* dev,
 				     struct light_state_t const* state)
 {
-    int alpha, red, green;
+    int alpha, red;
+#ifdef HAS_GREEN
+    int green;
+#endif
 #ifdef HAS_BLUE
     int blue;
 #endif
@@ -278,7 +285,9 @@ static void set_speaker_light_locked(struct light_device_t* dev,
 
     alpha = (colorRGB >> 24) & 0xFF;
     red = (colorRGB >> 16) & 0xFF;
+#ifdef HAS_GREEN
     green = (colorRGB >> 8) & 0xFF;
+#endif
 #ifdef HAS_BLUE
     blue = colorRGB & 0xFF;
 #endif
@@ -288,11 +297,13 @@ static void set_speaker_light_locked(struct light_device_t* dev,
     }
     else ret = blink_led(RED, 0, 0, 0);
     ALOGV("*** after blink_led(RED=%d), ret=%d", red, ret);
+#ifdef HAS_GREEN
     if (green) {
 	ret = blink_led(GREEN, green, onMS, offMS);
     }
     else ret = blink_led(GREEN, 0, 0, 0);
     ALOGV("*** after blink_led(GREEN=%d), ret=%d", green, ret);
+#endif
 #ifdef HAS_BLUE
     if (blue) {
 	blink_led(BLUE, blue, onMS, offMS);
