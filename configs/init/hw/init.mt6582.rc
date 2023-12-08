@@ -4,6 +4,10 @@ on early-init
     chown root system /proc/lk_env
     chmod 0660 /proc/lk_env
 
+# We need vold early for metadata encryption
+on early-fs
+    start vold
+
 on fs
 # Start HW service manager early
     start hwservicemanager
@@ -19,8 +23,14 @@ on late-fs
     start configstore-hal-1-0
     start gralloc-2-0
 
+# Wait for keymaster
+    exec_start wait_for_keymaster
+
 # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.mt6582 --late
+
+# Force ADB
+    setprop persist.sys.usb.config "mtp,adb"
 
 on post-fs-data
 # Allow writing to the kernel trace log.
