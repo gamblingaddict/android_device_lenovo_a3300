@@ -1,0 +1,25 @@
+cc_library_shared {
+    name: "libgralloc_extra",
+    srcs: [
+	"GraphicBufferExtra.cpp",
+	"GraphicBufferExtra_hal.cpp",
+    ],
+    local_include_dirs: ["include"],
+    include_dirs: [
+	"system/memory/libion/include",
+	"frameworks/native/libs/nativewindow/include",
+	"frameworks/native/libs/nativebase/include",
+	"frameworks/native/libs/arect/include"
+    ],
+    shared_libs: [
+	"libhardware",
+	"libcutils",
+	"libutils",
+	"liblog",
+	"libion",
+	"libion_mtk",
+	"libged",
+	"libui"
+    ],
+    vendor: true,
+}
