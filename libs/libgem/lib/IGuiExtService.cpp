@@ -178,7 +178,7 @@ public:
     }
 };
 
-IMPLEMENT_META_INTERFACE(GuiExtService, "GuiExtService");
+DO_NOT_DIRECTLY_USE_ME_IMPLEMENT_META_INTERFACE(GuiExtService, "GuiExtService");
 
 status_t BnGuiExtService::onTransact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags)
 {
