@@ -112,6 +112,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
+# Input
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/kl,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout) \
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
