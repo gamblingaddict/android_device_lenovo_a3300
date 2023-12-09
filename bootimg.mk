@@ -62,6 +62,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG)\
 	$(hide) $(call assert-max-image-size,$@, \
 		$(BOARD_BOOTIMAGE_PARTITION_SIZE),raw)
 	@echo -e ${CL_CYN}"Made boot image: $@"${CL_RST}
+	$(call add-radio-file, $(INSTALLED_BOOTIMAGE_TARGET))
 
 INTERNAL_MTK_RECOVERYIMAGE_ARGS := \
 		--kernel $(INSTALLED_KERNEL_TARGET).mtk \
