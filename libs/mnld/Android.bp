@@ -58,6 +58,7 @@ cc_binary {
         "inc",
         "inc2",
     ],
+    header_libs: ["libnvram_headers"],
     compile_multilib: "32",
     static_libs: ["libsupl"],
     shared_libs: [
