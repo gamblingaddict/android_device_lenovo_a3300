@@ -122,9 +122,9 @@
 # Sensors
 #
 
-/dev/hwmsensor			0660	system		system
-/dev/gsensor			0660	system		system
-/dev/aal_als			0660	system		system
+/dev/hwmsensor			0666	system		system
+/dev/gsensor			0666	system		system
+/dev/aal_als			0666	system		system
 
 # Touch
 /dev/touch			0660	root		system
