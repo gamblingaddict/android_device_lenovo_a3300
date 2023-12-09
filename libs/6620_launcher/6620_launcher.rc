@@ -1,4 +1,4 @@
-service 6620_launcher /vendor/bin/6620_launcher -p /vendor/firmware/
+service 6620_launcher /vendor/bin/6620_launcher -p /vendor/firmw/
     user system
     group system
     class core

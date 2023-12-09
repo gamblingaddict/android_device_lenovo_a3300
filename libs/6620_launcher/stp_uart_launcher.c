@@ -57,7 +57,7 @@
 
 #define CUST_COMBO_WMT_DEV "/dev/stpwmt"
 #define CUST_COMBO_STP_DEV "/dev/ttyMT2" //-- for ALPS
-#define CUST_COMBO_PATCH_PATH "/etc/firmware" //-- for ALPS
+#define CUST_COMBO_PATCH_PATH "/vendor/firmw" //-- for ALPS
 
 
 #define CUST_BAUDRATE_DFT (115200)
@@ -497,7 +497,7 @@ int cmd_hdr_stp_rst (P_STP_PARAMS_CONFIG pStpParamsConfig) {
 #if CUST_MULTI_PATCH
 int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
 {
-    //#define PATCH_PATH "/system/etc/firmware"
+    //#define PATCH_PATH "/vendor/firmw"
     int chipId = 0;
     int hwVersion = 0;
     int fwVersion = 0;
@@ -555,7 +555,7 @@ int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
 				if (0 == (strncmp(pDirent->d_name, chipName, strlen(chipName))))
 				{    /*4.1. search patch name begined with chipName*/
 					strcpy (patchFullName, pStpParamsConfig->pPatchPath);
-					strcat (patchFullName, "/"); // robust, if input patch is /etc/firmwre/ no issue should be happened.
+					strcat (patchFullName, "/"); // robust, if input patch is /vendor/firmw/ no issue should be happened.
 					strcat (patchFullName, pDirent->d_name);
 					
 					ALOGI ("%s\n", patchFullName);
@@ -639,7 +639,7 @@ int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
                     if (0 == (strncmp(pDirent->d_name, chipName, strlen(chipName))))
                     {    /*4.1. search patch name begined with chipName*/
                         strcpy (patchFullName, pStpParamsConfig->pPatchPath);
-                        strcat (patchFullName, "/"); // robust, if input patch is /etc/firmwre/ no issue should be happened.
+                        strcat (patchFullName, "/"); // robust, if input patch is /vendor/firmw/ no issue should be happened.
                         strcat (patchFullName, pDirent->d_name);
                         
                         ALOGI ("%s\n", patchFullName);
@@ -721,7 +721,7 @@ int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
 #else
 int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
 {
-    //#define PATCH_PATH "/system/etc/firmware"
+    //#define PATCH_PATH "/vendor/firmw"
     int chipId = 0;
     int hwVersion = 0;
     int fwVersion = 0;
@@ -769,7 +769,7 @@ int cmd_hdr_sch_patch (P_STP_PARAMS_CONFIG pStpParamsConfig)
             if (0 == (strncmp(pDirent->d_name, chipName, strlen(chipName))))
             {    /*4.1. search patch name begined with chipName*/
                 strcpy (patchFullName, pStpParamsConfig->pPatchPath);
-                strcat (patchFullName, "/"); // robust, if input patch is /etc/firmwre/ no issue should be happened.
+                strcat (patchFullName, "/"); // robust, if input patch is /vendor/firmw/ no issue should be happened.
                 strcat (patchFullName, pDirent->d_name);
                 
                 ALOGI ("%s\n", patchFullName);
@@ -853,8 +853,8 @@ void display_usage(int chipid)
         "        -3: BTIF mode (common interface: BTIF)",
         "        -4: SDIO mode (common interface: SDIO)",
         "    -p (MTK WCN soc conssy chip firmware patch location)",
-        "        -e.g. /etc/firmware",
-        "e.g. consys_launcher -m 3 -p /etc/firmware/",
+        "        -e.g. /vendor/firmw",
+        "e.g. consys_launcher -m 3 -p /vendor/firmw/",
     };
 	char * usage2[] = {
         "MTK WCN combo tool set, version 1.0-release",
@@ -865,17 +865,17 @@ void display_usage(int chipid)
 //        "        -2: UART mandetary mode (common interface UART)",
         "        -4: UART mode (common interface SDIO)",
         "    -p (MTK WCN Combo chip firmware patch location)",
-        "        -e.g. /etc/firmware",
+        "        -e.g. /vendor/firmw",
         "    -b (Baudrate set when BT/GPS/FM runs under UART mode, no needed under SDIO mode)",
         "        -115200/921600/2000000/2500000/3000000/3500000/4000000",
         "    -d (UART device node, when under UART mode, no needed under SDIO mode)",
         "        -e.g. /dev/ttyMT1, /dev/ttyMT2, /dev/ttyHS2, etc.",
         "    -c (UART flowcontrol set)",
         "        -0, no flowcontrol default value, please donot modify this parameter",
-        "e.g. 6620_launcher 4 /etc/firmware/mt6628_patch_hdr.bin",
-        "e.g. 6620_launcher -m 1 -p /etc/firmware/",
-        "e.g. 6620_launcher -m 1 -n /etc/firmware/mt6628_patch_hdr.bin",
-        "e.g. 6620_launcher -m 4 -d /dev/ttyMT2 -b 4000000 -n /etc/firmware/mt6628_patch_hdr.bin",
+        "e.g. 6620_launcher 4 /vendor/firmw/mt6628_patch_hdr.bin",
+        "e.g. 6620_launcher -m 1 -p /vendor/firmw/",
+        "e.g. 6620_launcher -m 1 -n /vendor/firmw/mt6628_patch_hdr.bin",
+        "e.g. 6620_launcher -m 4 -d /dev/ttyMT2 -b 4000000 -n /vendor/firmw/mt6628_patch_hdr.bin",
     };
 	if(0x6582 == chipid || 0x8127 == chipid)
 	{
@@ -1074,7 +1074,7 @@ static void set_coredump_flag(void)
 
 static int get_wmt_cfg (int chipId)
 {
-#define WMTCFGFILEPATH "/system/etc/firmware/WMT.cfg"
+#define WMTCFGFILEPATH "/vendor/firmw/WMT.cfg"
 #define OPENMODE "r"
 #define MAXLINELEN 512
     FILE * file = NULL;
