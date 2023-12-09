@@ -121,6 +121,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
+# Nvram
+PRODUCT_PACKAGES += \
+    nvram_daemon
+
 # Input
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/kl,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout) \
