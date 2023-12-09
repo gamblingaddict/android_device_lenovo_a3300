@@ -204,6 +204,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service
 
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    audio.usb.default \
+    audio.r_submix.default \
+    libaudio-resampler \
+    tinymix \
+    audio.primary.mt6582
+
+POLICY_PATH := frameworks/av/services/audiopolicy/config
+POLICY_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/
+
+PRODUCT_COPY_FILES += \
+    $(POLICY_PATH)/audio_policy_volumes.xml:$(POLICY_DEST)/audio_policy_volumes.xml \
+    $(POLICY_PATH)/default_volume_tables.xml:$(POLICY_DEST)/default_volume_tables.xml \
+    $(POLICY_PATH)/r_submix_audio_policy_configuration.xml:$(POLICY_DEST)/r_submix_audio_policy_configuration.xml \
+    $(POLICY_PATH)/usb_audio_policy_configuration.xml:$(POLICY_DEST)/usb_audio_policy_configuration.xml \
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic \
