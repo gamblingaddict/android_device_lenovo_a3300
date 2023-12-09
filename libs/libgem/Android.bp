@@ -12,7 +12,7 @@ cc_library_shared {
 	"lib/RefBaseDump.cpp"
     ],
     cppflags: ["-DCONFIG_FOR_SOURCE_PQ"],
-    local_include_dirs: ["inc","include"],
+    local_include_dirs: ["inc"],
     include_dirs: [
 	"frameworks/native/libs/nativewindow/include",
 	"frameworks/native/libs/nativebase/include",
@@ -57,7 +57,7 @@ cc_library_shared {
 	"lib/GuiExtImpl.cpp"
     ],
     cppflags: ["-DCONFIG_FOR_SOURCE_PQ"],
-    local_include_dirs: ["inc","include"],
+    local_include_dirs: ["inc"],
     shared_libs: [
 	"libutils",
 	"libcutils",

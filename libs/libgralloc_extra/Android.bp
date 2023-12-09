@@ -5,6 +5,7 @@ cc_library_shared {
 	"GraphicBufferExtra_hal.cpp",
     ],
     local_include_dirs: ["include"],
+    export_include_dirs: ["include"],
     include_dirs: [
 	"system/memory/libion/include",
 	"frameworks/native/libs/nativewindow/include",
