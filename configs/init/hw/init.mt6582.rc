@@ -49,6 +49,90 @@ on post-fs-data
     chmod 0660 /data/misc/wifi/p2p_supplicant.conf
     mkdir /data/misc/dhcp 0770 dhcp wifi
 
+# Accelerometer
+    chmod 0660 /sys/class/misc/m_acc_misc/accenablenodata
+    chmod 0660 /sys/class/misc/m_acc_misc/accactive
+    chmod 0660 /sys/class/misc/m_acc_misc/accdelay
+    chmod 0660 /sys/class/misc/m_acc_misc/accbatch
+    chmod 0660 /sys/class/misc/m_acc_misc/accflush
+    chown system system /sys/class/misc/m_acc_misc/accenablenodata
+    chown system system /sys/class/misc/m_acc_misc/accactive
+    chown system system /sys/class/misc/m_acc_misc/accdelay
+    chown system system /sys/class/misc/m_acc_misc/accbatch
+    chown system system /sys/class/misc/m_acc_misc/accflush
+
+# Magnetometer
+    chmod 0660 /sys/class/misc/m_mag_misc/magactive
+    chmod 0660 /sys/class/misc/m_mag_misc/magdelay
+    chmod 0660 /sys/class/misc/m_mag_misc/magbatch
+    chmod 0660 /sys/class/misc/m_mag_misc/magflush
+    chmod 0660 /sys/class/misc/m_mag_misc/magoactive
+    chmod 0660 /sys/class/misc/m_mag_misc/magodelay
+    chmod 0660 /sys/class/misc/m_mag_misc/magobatch
+    chmod 0660 /sys/class/misc/m_mag_misc/magoflush
+    chown system system /sys/class/misc/m_mag_misc/magactive
+    chown system system /sys/class/misc/m_mag_misc/magdelay
+    chown system system /sys/class/misc/m_mag_misc/magbatch
+    chown system system /sys/class/misc/m_mag_misc/magflush
+    chown system system /sys/class/misc/m_mag_misc/magoactive
+    chown system system /sys/class/misc/m_mag_misc/magodelay
+    chown system system /sys/class/misc/m_mag_misc/magobatch
+    chown system system /sys/class/misc/m_mag_misc/magoflush
+    chmod 0660 /sys/class/misc/m_batch_misc/batchactive
+    chmod 0660 /sys/class/misc/m_batch_misc/batchdelay
+    chmod 0660 /sys/class/misc/m_batch_misc/batchbatch
+    chmod 0660 /sys/class/misc/m_batch_misc/batchflush
+    chown system system /sys/class/misc/m_batch_misc/batchactive
+    chown system system /sys/class/misc/m_batch_misc/batchdelay
+    chown system system /sys/class/misc/m_batch_misc/batchbatch
+    chown system system /sys/class/misc/m_batch_misc/batchflush
+    chown system /sys/devices/platform/msensor/driver/cpsopmode
+    chown system /sys/devices/platform/msensor/driver/cpsreptxy
+    chown system /sys/devices/platform/msensor/driver/cpsreptz
+
+# Gyroscope
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyroenablenodata
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyroactive
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyrodelay
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyrobatch
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyroflush
+    chown system system /sys/class/misc/m_gyro_misc/gyroenablenodata
+    chown system system /sys/class/misc/m_gyro_misc/gyroactive
+    chown system system /sys/class/misc/m_gyro_misc/gyrodelay
+    chown system system /sys/class/misc/m_gyro_misc/gyrobatch
+    chown system system /sys/class/misc/m_gyro_misc/gyroflush
+
+# Light/Proximity
+    chmod 0660 /sys/class/misc/m_alsps_misc/alsactive
+    chmod 0660 /sys/class/misc/m_alsps_misc/alsdelay
+    chmod 0660 /sys/class/misc/m_alsps_misc/alsbatch
+    chmod 0660 /sys/class/misc/m_alsps_misc/alsflush
+    chmod 0660 /sys/class/misc/m_alsps_misc/psactive
+    chmod 0660 /sys/class/misc/m_alsps_misc/psdelay
+    chmod 0660 /sys/class/misc/m_alsps_misc/psbatch
+    chmod 0660 /sys/class/misc/m_alsps_misc/psflush
+    chown system system /sys/class/misc/m_alsps_misc/alsactive
+    chown system system /sys/class/misc/m_alsps_misc/alsdelay
+    chown system system /sys/class/misc/m_alsps_misc/alsbatch
+    chown system system /sys/class/misc/m_alsps_misc/alsflush
+    chown system system /sys/class/misc/m_alsps_misc/psactive
+    chown system system /sys/class/misc/m_alsps_misc/psdelay
+    chown system system /sys/class/misc/m_alsps_misc/psbatch
+    chown system system /sys/class/misc/m_alsps_misc/psflush
+
+# Barometer
+    chmod 0660 /sys/class/misc/m_baro_misc/baroenablenodata
+    chmod 0660 /sys/class/misc/m_baro_misc/baroactive
+    chmod 0660 /sys/class/misc/m_baro_misc/barodelay
+    chmod 0660 /sys/class/misc/m_baro_misc/barobatch
+    chmod 0660 /sys/class/misc/m_baro_misc/baroflush
+    chown system system /sys/class/misc/m_baro_misc/baroenablenodata
+    chown system system /sys/class/misc/m_baro_misc/baroactive
+    chown system system /sys/class/misc/m_baro_misc/barodelay
+    chown system system /sys/class/misc/m_baro_misc/barobatch
+    chown system system /sys/class/misc/m_baro_misc/baroflush
+
+
 # Allow writing to the kernel trace log.
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
 
