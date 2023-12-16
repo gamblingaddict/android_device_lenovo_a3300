@@ -222,6 +222,7 @@ POLICY_PATH := frameworks/av/services/audiopolicy/config
 POLICY_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/
 
 PRODUCT_COPY_FILES += \
+    $(POLICY_PATH)/a2dp_audio_policy_configuration.xml:$(POLICY_DEST)/a2dp_audio_policy_configuration.xml \
     $(POLICY_PATH)/audio_policy_volumes.xml:$(POLICY_DEST)/audio_policy_volumes.xml \
     $(POLICY_PATH)/default_volume_tables.xml:$(POLICY_DEST)/default_volume_tables.xml \
     $(POLICY_PATH)/r_submix_audio_policy_configuration.xml:$(POLICY_DEST)/r_submix_audio_policy_configuration.xml \
