@@ -9,6 +9,7 @@ bluetooth.device.default_name=LenovoA3300-GV
 ro.opengles.version=131072
 debug.hwui.use_partial_updates=false
 debug.sf.enable_gl_backpressure=1
+debug.renderengine.backend=threaded
 
 # GPS
 persist.force.gps.mode=gnss
