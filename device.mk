@@ -25,10 +25,28 @@ TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 TARGET_SCREEN_WIDTH := 1024
 TARGET_SCREEN_HEIGHT := 600
 
-# Speed profile services and wifi-service to reduce RAM and storage.
+# Strip the local variable table and the local variable type table to reduce
+# the size of the system image. This has no bearing on stack traces, but will
+# leave less information available via JDWP.
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
+
+# Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
+# Always preopt extracted APKs to prevent extracting out of the APK for gms
+# modules.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+
+# Dedupe VNDK libraries with identical core variants.
+TARGET_VNDK_USE_CORE_VARIANT := true
+
+# Disable Scudo outside of eng builds to save RAM.
+PRODUCT_DISABLE_SCUDO := true
+
+# Disable dex2oat debug
+USE_DEX2OAT_DEBUG := false
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/configs/overlay
