@@ -14,7 +14,7 @@
 #include <gui/ISurfaceComposer.h>
 #include <gui/SurfaceComposerClient.h>
 
-#include <ui/DisplayInfo.h>
+//#include <ui/DisplayInfo.h>
 
 #ifdef MTK_AOSP_ENHANCEMENT
 #include <ui/mediatek/IDumpTunnel.h>

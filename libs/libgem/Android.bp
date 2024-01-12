@@ -58,6 +58,7 @@ cc_library_shared {
     ],
     cppflags: ["-DCONFIG_FOR_SOURCE_PQ"],
     local_include_dirs: ["inc"],
+    include_dirs: ["frameworks/native/libs/ui/include"],
     shared_libs: [
 	"libutils",
 	"libcutils",

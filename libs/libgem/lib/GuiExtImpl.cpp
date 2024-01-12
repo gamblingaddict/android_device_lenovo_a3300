@@ -10,7 +10,7 @@
 #include <cutils/properties.h>
 #include <math.h>
 
-#include <ui/DisplayConfig.h>
+#include <ui/DisplayMode.h>
 #include <ui/GraphicBuffer.h>
 #include <gui/Surface.h>
 #include <gui/IProducerListener.h>
@@ -180,10 +180,10 @@ status_t GuiExtPool::alloc(const sp<IBinder>& token, uint32_t gralloc_usage, uin
 
     if (size == 0) {
         sp<IBinder> display = SurfaceComposerClient::getInternalDisplayToken();
-        DisplayConfig config;
-        SurfaceComposerClient::getActiveDisplayConfig(display, &config);
+        ui::DisplayMode mode;
+        SurfaceComposerClient::getActiveDisplayMode(display, &mode);
 
-        const ui::Size& resolution = config.resolution;
+        const ui::Size& resolution = mode.resolution;
         mDefaultDisplayWidth = resolution.getWidth();
         mDefaultDisplayHeight = resolution.getHeight();
 
