@@ -95,15 +95,12 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0 \
     libhidltransport \
-    libhidltransport.vendor \
     libhwbinder \
-    libhwbinder.vendor
 
 PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.0-impl \
     android.hardware.keymaster@4.0-service
 
 # Health
@@ -122,7 +119,6 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     wpa_supplicant \
-    wpa_supplicant.conf \
     wificond \
     libwifi-hal-mt66xx \
     lib_driver_cmd_mt66xx \
