@@ -11,7 +11,7 @@ cc_library_shared {
 	"libnvram",
     ],
     header_libs: ["libnvram_headers"],
-    include_dirs: ["system/bt/hci/include"],
+    include_dirs: ["packages/modules/Bluetooth/system/hci/include"],
     local_include_dirs: ["include"],
     proprietary: true,
 }
@@ -23,7 +23,7 @@ cc_library_shared {
 	"liblog",
 	"libbluetooth_mtk",
     ],
-    include_dirs: ["system/bt/hci/include"],
+    include_dirs: ["packages/modules/Bluetooth/system/hci/include"],
     local_include_dirs: ["include"],
     proprietary: true,
 }
