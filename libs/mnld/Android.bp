@@ -71,7 +71,7 @@ cc_binary {
         "liblog"
     ],
     proprietary: true,
-    required: ["libmnl.so"],
+    required: ["libmnl"],
     init_rc: ["mnld.rc"],
 }
 
