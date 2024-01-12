@@ -25,7 +25,7 @@ cc_library_shared {
 	"external/skia/include/private",
 	"external/skia",
 	"external/skia/android",
-	"external/skqp/include/config",
+	"external/skia/skqp/include/config",
 	"external/pdfium/skia/config"
     ],
     shared_libs: [
