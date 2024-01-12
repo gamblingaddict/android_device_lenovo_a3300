@@ -24,6 +24,7 @@
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <sys/types.h>
+#include <string.h>
 
 #include <ion/ion.h>
 #include <linux/mtk_ion.h>
@@ -32,7 +33,6 @@
 
 static int ion_set_client_name(int ion_fd, const char *name)
 {
-    int ret;
     ion_sys_data_t sys_data;
 
     sys_data.sys_cmd = ION_SYS_SET_CLIENT_NAME;
