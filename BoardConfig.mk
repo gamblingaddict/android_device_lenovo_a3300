@@ -97,6 +97,9 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS	+= $(DEVICE_PATH)/configs/sepolicy/private
 # Memfd
 TARGET_HAS_MEMFD_BACKPORT		:= true
 
+# MTK
+BOARD_HAS_MTK_HARDWARE			:= true
+
 # Display
 TARGET_SCREEN_DENSITY			:= 160
 
