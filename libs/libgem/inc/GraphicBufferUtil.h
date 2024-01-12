@@ -68,6 +68,8 @@ public:
     uint32_t getBitsPerPixel(buffer_handle_t handle);
     int getRealFormat(buffer_handle_t handle, PixelFormat* format);
 
+    void setPathName(const char* name);
+
     int drawLine(const buffer_handle_t& handle, uint8_t val, int ptn_w, int ptn_h, int pos);
     int drawLine(const sp<GraphicBuffer>& gb, uint8_t val, int ptn_w, int ptn_h, int pos);
     int drawLine(const BufferInfo &handle, uint8_t val, int ptn_w, int ptn_h, int pos);

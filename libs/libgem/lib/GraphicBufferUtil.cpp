@@ -198,6 +198,24 @@ void GraphicBufferUtil::dump(const buffer_handle_t &handle,
     dump(i, prefix, dir);
 }
 
+void GraphicBufferUtil::setPathName(const char* name)
+{
+    String8 path;
+    size_t len = strlen(name);
+    char* buf = path.lockBuffer(len);
+
+    memcpy(buf, name, len);
+
+    // remove trailing path separator, if present
+    if (len > 0 && buf[len-1] == OS_PATH_SEPARATOR)
+        len--;
+
+    buf[len] = '\0';
+
+    path.unlockBuffer(len);
+}
+
+
 void GraphicBufferUtil::dump( const BufferInfo &info,
                               const char* prefix,
                               const char* dir)
@@ -216,11 +234,11 @@ void GraphicBufferUtil::dump( const BufferInfo &info,
     String8 path;
     if ((NULL == dir) || (0 == strlen(dir)))
     {
-        path.setPathName("/data/");
+        setPathName("/data/");
     }
     else
     {
-        path.setPathName(dir);
+        setPathName(dir);
     }
 
     if ((NULL == prefix) || (0 == strlen(prefix)))
