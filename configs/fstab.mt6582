@@ -3,7 +3,7 @@
 
 /dev/block/mmcblk0p5	/system		ext4    ro						wait,first_stage_mount
 /dev/block/mmcblk0p6	/vendor		ext4    ro						wait,first_stage_mount
-/dev/block/mmcblk0p7	/data		ext4	noatime,nosuid,nodev,discard			latemount,wait,check,fileencryption=adiantum
+/dev/block/mmcblk0p7	/data		ext4	noatime,nosuid,nodev,discard			latemount,wait,check
 /dev/block/mmcblk0p2	/protect_f	ext4	noatime,nosuid,nodev,commit=1			wait,check,notrim
 /dev/block/mmcblk0p3	/protect_s	ext4	noatime,nosuid,nodev,commit=1			wait,check,notrim
 
