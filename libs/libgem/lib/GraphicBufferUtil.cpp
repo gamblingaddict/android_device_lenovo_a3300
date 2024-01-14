@@ -253,7 +253,6 @@ void GraphicBufferUtil::dump( const BufferInfo &info,
     }
     ALOGD("      name: %s", path.string());
 
-    uint32_t bits = getBitsPerPixel(format);
     bool isRaw = false;
     bool is565 = false;
     bool stripAlpha = false;
@@ -701,8 +700,6 @@ DownSampleConfig GraphicBufferUtil::downSampleCopy(const DownSampleConfig& confi
     BufferInfo srcInfo;
     srcInfo.getInfo(srcBuf);
 
-    const int& width = srcInfo.mWidth;
-    const int& height = srcInfo.mHeight;
     const int& format = srcInfo.mFormat;
     const int& stride = srcInfo.mStride;
     const int& vstride = srcInfo.mVStride;
@@ -762,7 +759,6 @@ DownSampleConfig GraphicBufferUtil::downSampleCopy(const DownSampleConfig& confi
     }
     else
     {
-        int y0, x0;
 
         int newWidth = (newCrop.getWidth() - 1) / newConfig.mDownSampleX + 1;
         int newHeight = (newCrop.getHeight() - 1) / newConfig.mDownSampleY + 1;

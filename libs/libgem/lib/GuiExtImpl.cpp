@@ -603,7 +603,6 @@ status_t GuiExtPoolItem::prepareBuffer(sp<IGraphicBufferProducer> producer, uint
     GUIEXT_LOGV("prepareBuffer, type=%d, fmt=%x, usage=%x, usg=%x, bufNum=%d", usage, fmt, gralloc_usage, usg, bufNum);
 
     for (uint32_t i = 0; i < bufNum; i++) {
-        int buf = -1;
         sp<Fence> fence;
 
    //     producer->dequeueBuffer(&buf, &fence, 0, 0, fmt, usg);
@@ -676,7 +675,7 @@ status_t GuiExtPoolItem::acquire(const sp<IBinder>& token, uint32_t usage, uint3
         return BAD_INDEX;
     }
     sp<Fence> fence;
-    uint32_t fmt = gAcquiredFormat[usage];
+//    uint32_t fmt = gAcquiredFormat[usage];
 //    status_t ret = producer->dequeueBuffer(buf, &fence, 0, 0, fmt, LOCK_FOR_USAGE);
 //    if (ret == WOULD_BLOCK || *buf < 0) {
 //        GUIEXT_LOGW("    acquire a pool=%d has no free slot", mId);
@@ -838,7 +837,6 @@ status_t GuiExtPoolItem::disconnect(uint32_t usage, uint32_t /*type*/)
 
 void GuiExtPoolItem::dump(String8& result) const
 {
-    int w, h;
     result.appendFormat("    "
                         "this=%p mId=%d, mIsHwcNeeded=%d, mProducerPid=%d, mProducerToken=%p\n",
                         this, mId, mIsHwcNeeded, mProducerPid, mProducerToken.get());
