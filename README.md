@@ -13,29 +13,31 @@ Front Camera	| 0.3 MP
 
 # What works:
 - Wi-Fi
-- Bluetooth
 - GPS
     - AGPS currently doesn't work due to RIL being broken.
 - Brightness
-- Hardware video encoding
+- Hardware video encoding/decoding
     - scrcpy shows a gray screen when the device is in portrait mode. Landscape works perfectly fine.
 - OpenGL
 - Touch
 - Sensors
-    - Only the accelerometer works. The touchscreen-based light/proximity sensor currently doesn't work.
+    - The (fake) light sensor is detected, but doesn't report any values.
 - Vibration
 - Suspend
     - May glitch out on non-hotplug governors.
 - Offline charging
 
 # What doesn't:
+- Audio
+  - Broken on A13.
+  - The speaker channels are reversed.
+- Bluetooth
+  - Broken on A13.
 - RIL
     - ccci_mdinit causes the system to crash without error logs somehow.
-- Audio
-    - The blobs are way too old for Android 11. May need to compile from source.
-    - And with it:
-	    - Microphone
-	    - FM Radio
+- Microphone
+- Headset
+- FM Radio
 - Camera
 
 Note: This will be migrated to the [issues page](https://github.com/gamblingaddict/android_device_lenovo_a3300/issues) soon™.
