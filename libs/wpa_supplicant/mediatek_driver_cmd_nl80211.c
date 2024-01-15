@@ -1019,12 +1019,12 @@ int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
                 ret = 0;
             }
         }
-    } else if (os_strncasecmp(cmd, "rxfilter-stop", 13) == 0) {
+    } else if (os_strncasecmp(cmd, "RXFILTER-STOP", 13) == 0) {
         u32 sw_cmd = 0x9F000000;
         u32 idx = 0x00900000;
         wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
         ret = 0;
-    } else if (os_strncasecmp(cmd, "rxfilter-start", 14) == 0) {
+    } else if (os_strncasecmp(cmd, "RXFILTER-START", 14) == 0) {
         u32 sw_cmd = 0x9F000000;
         u32 idx = 0x00900100;
         wpa_driver_nl80211_driver_sw_cmd(priv, 1, &sw_cmd, &idx);
