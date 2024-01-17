@@ -60,8 +60,7 @@ TARGET_VENDOR_PROP			:= $(DEVICE_PATH)/configs/vendor.prop
 
 # Kernel config
 TARGET_KERNEL_CLANG_COMPILE		:= false
-TARGET_KERNEL_CONFIG			:= lineage_a3300_defconfig
-TARGET_KERNEL_SOURCE			:= kernel/lenovo/a3300-again
+TARGET_KERNEL_CONFIG			:= a3300_defconfig
 BOARD_KERNEL_IMAGE_NAME			:= zImage
 
 # Boot image config
