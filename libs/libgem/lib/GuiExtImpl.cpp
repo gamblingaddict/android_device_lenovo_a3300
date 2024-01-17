@@ -564,7 +564,7 @@ void GuiExtPoolItem::createBufferQueue(uint32_t w, uint32_t h, uint32_t num, Str
 
     // producer connect
     //static sp<BBinder> sLife = new BBinder();
-    static sp<IProducerListener> plistener = new DummyProducerListener();
+    static sp<IProducerListener> plistener = new StubProducerListener();
     IGraphicBufferProducer::QueueBufferOutput output;
     err = producer->connect(plistener, NATIVE_WINDOW_API_MEDIA, true, &output);
 
