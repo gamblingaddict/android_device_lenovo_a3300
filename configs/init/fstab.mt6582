@@ -13,7 +13,7 @@
 /dev/nvram		/nvram		emmc	defaults					recoveryonly
 
 # Zram
-/dev/block/zram0	none		swap	defaults					zramsize=536870912
+/dev/block/zram0	none		swap	defaults					zramsize=805306368
 
 # Vold-managed volumes ("block device" is actually a sysfs devpath)
 /devices/platform/mtk-msdc.1/mmc_host*	auto	auto	defaults	voldmanaged=sdcard1:auto,encryptable=userdata
