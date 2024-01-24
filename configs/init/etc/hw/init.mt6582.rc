@@ -216,6 +216,10 @@ on post-fs-data
 # Encrypt phone function
     setprop vold.post_fs_data_done 1
 
+on boot
+    stop console
+    setprop init.svc.console stopped
+
 # Enable ZRAM on boot_complete
 on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.mt6582
