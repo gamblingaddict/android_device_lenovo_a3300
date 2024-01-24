@@ -12,6 +12,7 @@ debug.sf.enable_gl_backpressure=1
 debug.renderengine.backend=threaded
 sys.use_fifo_ui=1
 ro.surface_flinger.primary_display_orientation=ORIENTATION_90
+debug.cpurend.vsync=false
 
 # GPS
 persist.force.gps.mode=gnss
