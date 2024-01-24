@@ -32,21 +32,6 @@
 // have been modified by MediaTek Inc. All revisions are subject to any receiver's
 // applicable license agreements with MediaTek Inc.
 
-cc_prebuilt_library_shared {
-    name: "libmnl",
-    vendor: true,
-    target: {
-	android_arm: {
-		srcs: ["libmnl.so"],
-	},
-    },
-    shared_libs: ["libc", "libm", "libstdc++"],
-    strip: {
-	none:true,
-    },
-    allow_undefined_symbols: true,
-}
-
 cc_prebuilt_library_static {
     name: "libhotstill",
 

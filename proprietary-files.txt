@@ -46,6 +46,8 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 -lib/libhwm.so:vendor/lib/libhwm.so
 -lib/libfile_op.so:vendor/lib/libfile_op.so
 
+-lib/libmnl.so:vendor/lib/libmnl.so
+
 # Firmware:
 etc/firmware/catcher_filter_1_wg_n.bin:vendor/firmw/catcher_filter_1_wg_n.bin
 etc/firmware/modem_1_wg_n.img:vendor/firmw/modem_1_wg_n.img
