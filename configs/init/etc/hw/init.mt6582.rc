@@ -220,6 +220,10 @@ on boot
     stop console
     setprop init.svc.console stopped
 
+    # Flash storage isn't a good entropy source, and only causes locking
+    # overhead in the kernel. Turn it off.
+    write /sys/block/mmcblk0/queue/add_random 0
+
 # Enable ZRAM on boot_complete
 on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.mt6582
