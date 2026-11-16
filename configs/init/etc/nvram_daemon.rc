@@ -1,0 +1,15 @@
+on post-fs-data
+    mkdir /data/nvram/md  0770 system system
+    mkdir /data/nvram 0771 system system
+    mkdir /data/nvram/bt 2771 bluetooth bluetooth
+    mkdir /data/nvram/media 0771 media audio
+    mkdir /data/nvram/APCFG 0771 system system
+    mkdir /data/nvram/APCFG/APRDCL 0771 system system
+
+on property:vold.decrypt=trigger_restart_framework
+    start nvram_daemon
+
+service nvram_daemon /vendor/bin/nvram_daemon
+    class main
+    group system
+    oneshot

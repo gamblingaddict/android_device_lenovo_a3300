@@ -1,0 +1,29 @@
+on boot
+    chown root   system /proc/mtktscpu/mtktscpu
+    chown root   system /proc/mtktsabb/mtktsabb
+    chown root   system /proc/mtktscpu/mtktscpu_cooler
+    chown root   system /proc/mtktsbattery/mtktsbattery
+    chown root   system /proc/mtktspa/mtktspa
+    chown root   system /proc/mtktspmic/mtktspmic
+    chown root   system /proc/driver/mtk_thermal_monitor
+    chown root   radio  /proc/driver/mtm_scen_call
+    chown system system /proc/driver/mtk_cl_sd_pid
+    chown root   system /proc/wmt_tm/wmt_tm
+    chown system system /proc/wmt_tm/tm_pid
+    chown system system /proc/wmt_tm/tx_thro
+    chown system system /proc/wmt_tm/wmt_val
+    chown system system /proc/wmt_tm/wfd_stat
+    chmod 0660 /proc/mtktscpu/mtktscpu
+    chmod 0660 /proc/mtktsabb/mtktsabb
+    chmod 0660 /proc/mtktscpu/mtktscpu_cooler
+    chmod 0660 /proc/mtktsbattery/mtktsbattery
+    chmod 0660 /proc/mtktspa/mtktspa
+    chmod 0660 /proc/mtktspmic/mtktspmic
+    chmod 0660 /proc/driver/mtk_thermal_monitor
+    chmod 0660 /proc/driver/mtm_scen_call
+    chmod 0660 /proc/driver/mtk_cl_sd_pid
+
+service thermal_manager /vendor/bin/thermal_manager
+    class main
+    user root
+    oneshot

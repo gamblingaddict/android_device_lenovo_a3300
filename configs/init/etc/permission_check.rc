@@ -1,0 +1,8 @@
+on property:vold.decrypt=trigger_restart_framework
+    start permission_check
+
+service permission_check /vendor/bin/permission_check
+    class main
+    user root
+    group system radio
+    oneshot

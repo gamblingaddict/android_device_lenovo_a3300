@@ -1,0 +1,16 @@
+on post-fs-data
+    mkdir /data/nvram/md  2770 root system
+    chown radio radio /sys/kernel/ccci/boot
+    chown radio radio /sys/kernel/ccci/modem_info
+    chown radio radio /sys/kernel/ccci/md1_postfix
+    chown radio radio /sys/kernel/ccci/md2_postfix
+    chmod 0664 /sys/kernel/ccci/boot
+    chmod 0664 /sys/kernel/ccci/modem_info
+    chmod 0664 /sys/kernel/ccci/md1_postfix
+    chmod 0664 /sys/kernel/ccci/md2_postfix
+
+service ccci_mdinit /vendor/bin/ccci_mdinit 0
+    user main
+    group radio system
+    class core
+    oneshot
