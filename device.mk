@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
     ueventd.mt6582.rc
 
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/init,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
+    $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/init/etc,$(TARGET_COPY_OUT_VENDOR)/etc/init) \
 
 # HIDL
 PRODUCT_PACKAGES += \
