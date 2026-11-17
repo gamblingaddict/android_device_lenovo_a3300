@@ -53,6 +53,11 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function patch_bytes() { # file offset_hex expected_hex new_hex
+  [ "$(xxd -p -c $((${#3}/2)) -s $(($2)) -l $((${#3}/2)) "$1")" = "$3" ] || { echo "MISMATCH $1 @$2"; return 1; }
+  printf "$(echo "$4" | sed 's/../\\x&/g')" | dd of="$1" bs=1 seek=$(($2)) conv=notrunc 2>/dev/null
+}
+
 function blob_fixup() {
     case "${1}" in
         vendor/bin/ccci_fsd)
@@ -74,6 +79,18 @@ function blob_fixup() {
         vendor/lib/hw/hwcomposer.mt6582.so)
             sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
             "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
+            ;;
+        vendor/lib/hw/audio.primary.mt6582.so)
+            # Realign audio_hw_device slots with the Android 11 audio HAL layout:
+            # create/release patch, get_audio_port, set_audio_port_config shift +4,
+            # and the MTK store at 0x98 is dropped so it can't clobber set_audio_port_config.
+            patch_bytes "${2}" 0x3d98c 881084e5 8c1084e5
+            patch_bytes "${2}" 0x3d990 8c6084e5 906084e5
+            patch_bytes "${2}" 0x3d994 903084e5 943084e5
+            patch_bytes "${2}" 0x3d998 94b084e5 98b084e5
+            patch_bytes "${2}" 0x3d99c 98a084e5 0000a0e1
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            ;;
     esac
 }
 

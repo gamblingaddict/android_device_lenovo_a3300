@@ -198,7 +198,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler \
     tinymix \
-    audio.primary.mt6582
+    libbluetoothdrv
 
 POLICY_PATH := frameworks/av/services/audiopolicy/config
 POLICY_DEST := $(TARGET_COPY_OUT_VENDOR)/etc/

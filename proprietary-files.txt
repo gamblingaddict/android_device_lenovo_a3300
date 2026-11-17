@@ -11,24 +11,29 @@
 
 -lib/hw/hwcomposer.mt6582.so:vendor/lib/hw/hwcomposer.mt6582.so
 -lib/libdpframework.so:vendor/lib/libdpframework.so
+-lib/libperfservicenative.so:vendor/lib/libperfservicenative.so
+-lib/libstlport.so:vendor/lib/libstlport.so
 
 -lib/hw/sensors.mt6582.so:vendor/lib/hw/sensors.mt6582.so
 
--lib/libaudiodcrflt.so:vendor/lib/libaudiodcrflt.so
--lib/libbwc.so:vendor/lib/libbwc.so
--lib/libfile_op.so:vendor/lib/libfile_op.so
--lib/libmtk_drvb.so:vendor/lib/libmtk_drvb.so
--lib/libperfservicenative.so:vendor/lib/libperfservicenative.so
--lib/libbessound_hd_mtk.so:vendor/lib/libbessound_hd_mtk.so
--lib/libhwm.so:vendor/lib/libhwm.so
--lib/libmtklimiter.so:vendor/lib/libmtklimiter.so
--lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so
--lib/libcvsd_mtk.so:vendor/lib/libcvsd_mtk.so
--lib/libmtkshifter.so:vendor/lib/libmtkshifter.s
--lib/libstlport.so:vendor/lib/libstlport.so
+-lib/hw/audio.primary.mt6582.so:vendor/lib/hw/audio.primary.mt6582.so
 -lib/libaed.so:vendor/lib/libaed.so
+-lib/libaudiocompensationfilter.so:vendor/lib/libaudiocompensationfilter.so
+-lib/libaudiocomponentengine.so:vendor/lib/libaudiocomponentengine.so
+-lib/libaudiocustparam.so:vendor/lib/libaudiocustparam.so
+-lib/libaudiodcrflt.so:vendor/lib/libaudiodcrflt.so
+-lib/libaudiomtkdcremoval.so:vendor/lib/libaudiomtkdcremoval.so
+-lib/libaudiosetting.so:vendor/lib/libaudiosetting.so
+lib/libaudioutils.so:vendor/lib/libaudioutils.so
+-lib/libbessound_hd_mtk.so:vendor/lib/libbessound_hd_mtk.so
 -lib/libblisrc.so:vendor/lib/libblisrc.so
 -lib/libblisrc32.so:vendor/lib/libblisrc32.so
+-lib/libbwc.so:vendor/lib/libbwc.so
+-lib/libcvsd_mtk.so:vendor/lib/libcvsd_mtk.so
+-lib/libmtk_drvb.so:vendor/lib/libmtk_drvb.so
+-lib/libmtklimiter.so:vendor/lib/libmtklimiter.so
+-lib/libspeech_enh_lib.so:vendor/lib/libspeech_enh_lib.so
+-lib/libmtkshifter.so:vendor/lib/libmtkshifter.so
 -lib/libmsbc_mtk.so:vendor/lib/libmsbc_mtk.so
 
 -lib/libnvramagentclient.so:vendor/lib/libnvramagentclient.so
@@ -37,6 +42,9 @@
 -lib/libnvram_platform.so:vendor/lib/libnvram_platform.so
 -lib/libnvram_daemon_callback.so:vendor/lib/libnvram_daemon_callback.so
 -lib/libcustom_nvram.so:vendor/lib/libcustom_nvram.so
+
+-lib/libhwm.so:vendor/lib/libhwm.so
+-lib/libfile_op.so:vendor/lib/libfile_op.so
 
 # Firmware:
 etc/firmware/catcher_filter_1_wg_n.bin:vendor/firmw/catcher_filter_1_wg_n.bin
