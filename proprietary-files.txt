@@ -14,7 +14,7 @@
 -lib/libperfservicenative.so:vendor/lib/libperfservicenative.so
 -lib/libstlport.so:vendor/lib/libstlport.so
 
--lib/hw/sensors.mt6582.so:vendor/lib/hw/sensors.mt6582.so
+-lib/hw/sensors.mt6582.so:vendor/lib/sensors.mt6582.so
 
 -lib/hw/audio.primary.mt6582.so:vendor/lib/hw/audio.primary.mt6582.so
 -lib/libaed.so:vendor/lib/libaed.so
