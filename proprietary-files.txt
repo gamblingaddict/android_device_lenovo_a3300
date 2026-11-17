@@ -51,10 +51,12 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 # Firmware:
 etc/firmware/catcher_filter_1_wg_n.bin:vendor/firmw/catcher_filter_1_wg_n.bin
 etc/firmware/modem_1_wg_n.img:vendor/firmw/modem_1_wg_n.img
-etc/firmware/ROMv1_patch_1_0_hdr.bin:vendor/firmw/ROMv1_patch_1_0_hdr.bin
-etc/firmware/ROMv1_patch_1_1_hdr.bin:vendor/firmw/ROMv1_patch_1_1_hdr.bin
-etc/firmware/WIFI_RAM_CODE_SOC:vendor/firmw/WIFI_RAM_CODE_SOC
-etc/firmware/WMT_SOC.cfg:vendor/firmw/WMT_SOC.cfg
+
+# From sprout:
+etc/firmware/ROMv1_patch_1_0_hdr.bin:vendor/firmw/ROMv1_patch_1_0_hdr.bin|78bde29c044aa27dc64e1e576f8560c5c27cc1cb
+etc/firmware/ROMv1_patch_1_1_hdr.bin:vendor/firmw/ROMv1_patch_1_1_hdr.bin|63eca99b00010b8a82b01a856dd99fb4dfd9a8e9
+etc/firmware/WIFI_RAM_CODE_SOC:vendor/firmw/WIFI_RAM_CODE_SOC|ddfa4ad531bba8521baccd807b2536c138cd0bff
+etc/firmware/WMT_SOC.cfg:vendor/firmw/WMT_SOC.cfg|332d756d90fe5ecdce687414f3b6ddf0bcab0cf2
 
 etc/firmware/mt6627/mt6627_fm_v1_coeff.bin:vendor/firmw/mt6627/mt6627_fm_v1_coeff.bin
 etc/firmware/mt6627/mt6627_fm_v2_coeff.bin:vendor/firmw/mt6627/mt6627_fm_v2_coeff.bin
