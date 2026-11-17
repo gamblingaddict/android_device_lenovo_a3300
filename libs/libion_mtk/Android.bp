@@ -19,7 +19,6 @@ cc_library_shared {
     vendor: true,
     srcs: [
 	"ion.c",
-	"xlog.c",
 	"atomic.cpp",
     ],
     include_dirs: ["system/core/include"],
@@ -30,5 +29,6 @@ cc_library_shared {
     shared_libs: [
     	"liblog",
     	"libion",
+	"libshim_log"
     ],
 }
