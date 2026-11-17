@@ -4,3 +4,10 @@ cc_library_shared {
     shared_libs: ["libcutils",],
     proprietary: true,
 }
+
+cc_library_shared {
+    name: "libshim_utils",
+    srcs: ["libshim_utils.cpp"],
+    shared_libs: ["libutils", "liblog"],
+    proprietary: true,
+}

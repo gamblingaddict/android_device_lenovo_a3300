@@ -71,6 +71,9 @@ function blob_fixup() {
         vendor/lib/libMtkOmxCore.so)
             sed -i 's|system/etc|vendor/etc|g' "${2}"
             ;;
+        vendor/lib/hw/hwcomposer.mt6582.so)
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
     esac
 }
 
