@@ -1,12 +1,12 @@
 DEVICE_PATH := device/lenovo/a3300
 VENDOR_PATH := vendor/lenovo/a3300
 
+# Inherit the proprietary configuration.
+$(call inherit-product, $(VENDOR_PATH)/a3300-vendor.mk)
+
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
-# Firmware
-$(call inherit-product, $(VENDOR_PATH)/vendor.mk)
 
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
@@ -31,8 +31,7 @@ DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/configs/overlay
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
-    $(DEVICE_PATH)/libs \
-    $(VENDOR_PATH)/proprietary \
+    $(DEVICE_PATH)/libs
 
 # Permissions/features
 PERM_PATH := frameworks/native/data/etc
@@ -120,10 +119,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
-# Nvram
-PRODUCT_PACKAGES += \
-    nvram_daemon
-
 # Input
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,${DEVICE_PATH}/configs/kl,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout) \
@@ -131,8 +126,7 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    sensors.wrapper \
-    sensors.mt6582
+    sensors.wrapper
 
 PRODUCT_COPY_FILES += \
      $(DEVICE_PATH)/configs/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
@@ -155,8 +149,12 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-service \
-    hwcomposer.mt6582 \
-    gralloc.mt6582
+    libgralloc_extra \
+    libgui_ext \
+    libui_ext \
+    libion_mtk \
+    libshim_cutils \
+    libshim_utils
 
 # Memtrack
 PRODUCT_PACKAGES += \
@@ -164,24 +162,9 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     memtrack.mt6582
 
-# OpenGL
-PRODUCT_PACKAGES += \
-    libMali \
-    libEGL_mali \
-    libGLESv1_CM_mali \
-    libGLESv2_mali \
-    libshim_cutils
-
-PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/configs/egl.cfg:$(TARGET_COPY_OUT_VENDOR)/lib/egl/egl.cfg
-
 # OMX
 PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0 \
-    libMtkOmxCore \
-    libMtkOmxVdec \
-    libMtkOmxVenc \
-    libstagefrighthw
+    android.hardware.media.omx@1.0
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc) \
