@@ -23,3 +23,5 @@ debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+debug.stagefright.mtk_usage=true
+debug.stagefright.mtk_stride=true

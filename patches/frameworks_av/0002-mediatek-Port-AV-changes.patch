@@ -1,4 +1,4 @@
-From fea437e06b834383f9def7f3410767b034bd00b7 Mon Sep 17 00:00:00 2001
+From ca302df9aa342db51c3d1385a84a6c4b84df8ee4 Mon Sep 17 00:00:00 2001
 From: bilux <i.bilux@gmail.com>
 Date: Mon, 23 Mar 2020 10:45:36 +0100
 Subject: [PATCH] mediatek: Port AV changes
@@ -11,48 +11,57 @@ with the minimum required feature set and confined to
 allow co-existance with changes from other vendors.
 
 Co-authored-by: Dinolek <18579460+Dinolek@users.noreply.github.com>
+Change-Id: If7b501aaa47f1cea04a50a1d319815edac1da185
 Signed-off-by: bilux <i.bilux@gmail.com>
 ---
- media/libstagefright/ACodec.cpp | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ media/libstagefright/ACodec.cpp | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
 
 diff --git a/media/libstagefright/ACodec.cpp b/media/libstagefright/ACodec.cpp
-index 0ecb8bd..0242e95 100644
+index 4a3b32f..0874dd5 100644
 --- a/media/libstagefright/ACodec.cpp
 +++ b/media/libstagefright/ACodec.cpp
-@@ -63,6 +63,10 @@
- #include "include/SecureBuffer.h"
- #include "include/SharedMemoryBuffer.h"
- #include <media/stagefright/omx/OMXUtils.h>
+@@ -24,6 +24,8 @@
+ #include <inttypes.h>
+ #include <utils/Trace.h>
+ 
++#include <cutils/properties.h>
 +
-+#ifndef MTK_HARDWARE
-+#define MTK_HARDWARE
-+#endif
+ #include <android/hardware/media/omx/1.0/IGraphicBufferSource.h>
  
- namespace android {
- 
-@@ -1111,6 +1115,9 @@
+ #include <gui/Surface.h>
+@@ -1110,6 +1112,20 @@ status_t ACodec::setupNativeWindowSizeFormatAndUsage(
+         usage |= GRALLOC_USAGE_PROTECTED;
      }
  
++    uint32_t frameWidth = def.format.video.nFrameWidth;
++    uint32_t frameHeight = def.format.video.nFrameHeight;
++
++    if (mComponentName.startsWith("OMX.MTK.")) {
++        bool mtkUsage  = property_get_bool("debug.stagefright.mtk_usage", false);
++        bool mtkStride = property_get_bool("debug.stagefright.mtk_stride", false);
++        if (mtkUsage)
++            usage |= (GRALLOC_USAGE_SW_WRITE_OFTEN | GRALLOC_USAGE_SW_READ_OFTEN);
++        if (mtkStride) {
++            frameWidth = def.format.video.nStride;
++            frameHeight = def.format.video.nSliceHeight;
++        }
++    }
++
      usage |= kVideoGrallocUsage;
-+#ifdef MTK_HARDWARE
-+    usage |= (GRALLOC_USAGE_SW_WRITE_OFTEN | GRALLOC_USAGE_SW_READ_OFTEN);
-+#endif
      *finalUsage = usage;
  
-     memset(&mLastNativeWindowCrop, 0, sizeof(mLastNativeWindowCrop));
-@@ -1119,8 +1126,13 @@
+@@ -1119,8 +1135,8 @@ status_t ACodec::setupNativeWindowSizeFormatAndUsage(
      ALOGV("gralloc usage: %#x(OMX) => %#x(ACodec)", omxUsage, usage);
      return setNativeWindowSizeFormatAndUsage(
              nativeWindow,
-+#ifdef MTK_HARDWARE
-+            def.format.video.nStride,
-+            def.format.video.nSliceHeight,
-+#else
-             def.format.video.nFrameWidth,
-             def.format.video.nFrameHeight,
-+#endif
+-            def.format.video.nFrameWidth,
+-            def.format.video.nFrameHeight,
++            frameWidth,
++            frameHeight,
              def.format.video.eColorFormat,
              mRotationDegrees,
              usage,
+-- 
+2.43.0
 
