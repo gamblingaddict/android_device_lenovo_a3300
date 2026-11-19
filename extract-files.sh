@@ -76,10 +76,6 @@ function blob_fixup() {
         vendor/lib/libMtkOmxCore.so)
             sed -i 's|system/etc|vendor/etc|g' "${2}"
             ;;
-        vendor/lib/hw/hwcomposer.mt6582.so)
-            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
-            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
-            ;;
         vendor/lib/hw/audio.primary.mt6582.so)
             # Realign audio_hw_device slots with the Android 11 audio HAL layout:
             # create/release patch, get_audio_port, set_audio_port_config shift +4,
