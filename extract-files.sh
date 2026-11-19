@@ -91,6 +91,35 @@ function blob_fixup() {
             patch_bytes "${2}" 0x3d99c 98a084e5 0000a0e1
             sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
             ;;
+        vendor/lib/libvcodecdrv.so)
+            # width MB count: (w >> 4) - 1  ->  (w - 1) >> 4
+            patch_bytes "${2}" 0x6dda 0a09 4a1e
+            patch_bytes "${2}" 0x6dde 501e 1009
+            # crop flag: bottom pad = (-h) & 15, branch to cave if zero
+            patch_bytes "${2}" 0x6e54 00f10f0c2cf00f0ebeeb000a47d0 c0f1000a1af00f0a00bf00f0eb80
+            # right crop offset: call cave returning ((-w) & 15) >> 1
+            patch_bytes "${2}" 0x6e94 00204946 00f0c9f8
+            # caves in the dead sprintf loop
+            patch_bytes "${2}" 0x7024 \
+                0df11409dbf80060dff83ca0cbf810403446fa44dbf81020a11b914207d214f8012b4846 \
+                cbf8104013e04946d8f80c004042c0f342007047d8f80cc01cf00f0f7ff40faffff755bf
+            # driver bitstream dump
+            patch_bytes "${2}" 124501 \
+                2f2f6d6e742f2f7364636172642f2f656e635f64756d70253038642e6832363400 \
+                2f646174612f6c6f63616c2f746d702f656e63253038642e683236340000000000
+            ;;
+        vendor/lib/libMtkOmxVenc.so)
+            # align destination width to 16
+            patch_bytes "${2}" 0x9892 cdf80880 01f092f8
+            patch_bytes "${2}" 0xa9ba 2de9f04f89b0d0f8143241f66462 08f10f0828f00f08cdf808807047
+            # C: make the MDP source region 608 wide (the aligned width) so source and destination match 1:1
+            patch_bytes "${2}" 0x90d8 949f959d 01f077fc
+            patch_bytes "${2}" 0xa9ca 18520193019ea5f1040a8058 949f0f3727f00f07959d7047
+            # post-MDP YUV dump
+            patch_bytes "${2}" 62449 \
+                2f7364636172642f696e70757461635f25645f25645f25645f25642e79757600 \
+                2f646174612f6c6f63616c2f746d702f25645f25645f25645f25642e79757600
+            ;;
     esac
 }
 

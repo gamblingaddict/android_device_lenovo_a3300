@@ -84,9 +84,9 @@ lib/egl/egl.cfg:vendor/lib/egl/egl.cfg
 -lib/libdrmmtkutil.so:vendor/lib/libdrmmtkutil.so|74ae781a9ed19446d6598281a24d142887e55339
 -lib/libstagefrighthw.so:vendor/lib/libstagefrighthw.so|882916ffb3cda267d50c3cd977a446fded32922a
 -lib/libMtkOmxCore.so:vendor/lib/libMtkOmxCore.so|76f0f125ef063e846095549fc98da9d25e6845a6|bbef15210ef58847a87792eaf9d8602cc5d6bf94
--lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so|77479d3a5d5e5cc1fc35a1a6daaf682c3a3c6769
+-lib/libMtkOmxVenc.so:vendor/lib/libMtkOmxVenc.so|77479d3a5d5e5cc1fc35a1a6daaf682c3a3c6769|29f2b7cb7d34677bd72a900e66fb67375c6c71ca
 -lib/libMtkOmxVdec.so:vendor/lib/libMtkOmxVdec.so|15b401f8ae9744151f67f804ca39524a0abb1177
--lib/libvcodecdrv.so:vendor/lib/libvcodecdrv.so|461634c91511da3053133462069d3388e20365b6
+-lib/libvcodecdrv.so:vendor/lib/libvcodecdrv.so|461634c91511da3053133462069d3388e20365b6|b610a8cd96cf6db54cc05615240148745aa716b2
 -lib/libvcodec_utility.so:vendor/lib/libvcodec_utility.so|66bbc431d9c97de4e8ef8f841b3d551a4c6c3662
 -lib/libdrmmtkutil.so:vendor/lib/libdrmmtkutil.so|74ae781a9ed19446d6598281a24d142887e55339
 -lib/libm4u.so:vendor/lib/libm4u.so|540c368d1767873fdb3ea382b77d4f65a332eccf
