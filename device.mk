@@ -26,7 +26,10 @@ TARGET_SCREEN_WIDTH := 1024
 TARGET_SCREEN_HEIGHT := 600
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/configs/overlay
+PRODUCT_PACKAGES += \
+    FrameworksOverlayA3300 \
+    SystemUIOverlayA3300 \
+    WifiOverlayA3300
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

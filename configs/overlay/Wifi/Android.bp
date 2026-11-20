@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "WifiOverlayA3300",
+    sdk_version: "current",
+    vendor: true
+}
