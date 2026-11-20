@@ -21,7 +21,7 @@ cc_library_shared {
 
 cc_library_shared {
     name: "libshim_bionic",
-    srcs: ["libshim_bionic.cpp"],
+    srcs: ["libshim_bionic.cpp", "libshim_pthread.cpp"],
     proprietary: true,
 }
 
