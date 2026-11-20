@@ -126,6 +126,9 @@ function blob_fixup() {
         vendor/lib/libcam.utils.so)
             "${PATCHELF}" --add-needed "libshim_callstack.so" "${2}"
             ;;
+        vendor/lib/libcam_utils.so)
+            "${PATCHELF}" --add-needed "libshim_ui.so" "${2}"
+            ;;
     esac
 }
 
