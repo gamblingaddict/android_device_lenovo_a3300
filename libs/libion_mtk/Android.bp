@@ -29,6 +29,7 @@ cc_library_shared {
     shared_libs: [
     	"liblog",
     	"libion",
-	"libshim_log"
+        "libshim_log",
+        "libshim_bionic"
     ],
 }
