@@ -29,7 +29,8 @@ TARGET_SCREEN_HEIGHT := 600
 PRODUCT_PACKAGES += \
     FrameworksOverlayA3300 \
     SystemUIOverlayA3300 \
-    WifiOverlayA3300
+    WifiOverlayA3300 \
+    TetheringOverlayA3300
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
