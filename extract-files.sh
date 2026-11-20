@@ -116,6 +116,9 @@ function blob_fixup() {
                 2f7364636172642f696e70757461635f25645f25645f25645f25642e79757600 \
                 2f646174612f6c6f63616c2f746d702f25645f25645f25645f25642e79757600
             ;;
+        vendor/lib/libmdloggerrecycle.so)
+            "${PATCHELF}" --add-needed "libshim_log.so" "${2}"
+            ;;
     esac
 }
 
