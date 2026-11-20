@@ -123,6 +123,9 @@ function blob_fixup() {
             sed -i 's|pthread_mutex_destroy|ptbread_mutex_destroy|g' "${2}"
             "${PATCHELF}" --add-needed "libshim_bionic.so" "${2}"
             ;;
+        vendor/lib/libcam.utils.so)
+            "${PATCHELF}" --add-needed "libshim_callstack.so" "${2}"
+            ;;
     esac
 }
 
