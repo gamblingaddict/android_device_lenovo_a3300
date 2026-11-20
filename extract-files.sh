@@ -119,6 +119,10 @@ function blob_fixup() {
         vendor/lib/libmdloggerrecycle.so)
             "${PATCHELF}" --add-needed "libshim_log.so" "${2}"
             ;;
+        vendor/lib/libmnl.so)
+            sed -i 's|pthread_mutex_destroy|ptbread_mutex_destroy|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_bionic.so" "${2}"
+            ;;
     esac
 }
 

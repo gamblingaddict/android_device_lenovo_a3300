@@ -64,7 +64,7 @@ static inline __always_inline bool IsMutexDestroyed(uint16_t mutex_state) {
     return mutex_state == 0xffff;
 }
 
-int pthread_mutex_destroy(pthread_mutex_t* mutex_interface) {
+extern "C" int ptbread_mutex_destroy(pthread_mutex_t* mutex_interface) {
     pthread_mutex_internal_t* mutex = __get_internal_mutex(mutex_interface);
     uint16_t old_state = atomic_load_explicit(&mutex->state, memory_order_relaxed);
     if (__predict_false(IsMutexDestroyed(old_state))) {
@@ -72,7 +72,5 @@ int pthread_mutex_destroy(pthread_mutex_t* mutex_interface) {
         return EBUSY;
     }
 
-    int (*real_pthread_mutex_destroy)(pthread_mutex_t*);
-    *(void **)&real_pthread_mutex_destroy = dlsym(RTLD_NEXT, "pthread_mutex_destroy");
-    return real_pthread_mutex_destroy(mutex_interface);
+    return pthread_mutex_destroy(mutex_interface);
 }
