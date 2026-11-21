@@ -40,6 +40,13 @@ cc_library_shared {
 }
 
 cc_library_shared {
+    name: "libshim_gui",
+    srcs: ["gui/SensorManager.c"],
+    shared_libs: ["libgui", "liblog", "libutils", "libsensor"],
+    proprietary: true,
+}
+
+cc_library_shared {
     name: "libbluetoothdrv",
     srcs: ["audio.cpp"],
     shared_libs: ["libshim_log", "libshim_cutils", "libshim_utils", "libbt-vendor"],
