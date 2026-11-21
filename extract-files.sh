@@ -129,6 +129,25 @@ function blob_fixup() {
         vendor/lib/libcam_utils.so)
             "${PATCHELF}" --add-needed "libshim_ui.so" "${2}"
             ;;
+        vendor/lib/libcam.camadapter.so)
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
+            "${PATCHELF}" --add-needed "libshim_camera.so" "${2}"
+            ;;
+        vendor/lib/libcam.client.so)
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
+            "${PATCHELF}" --add-needed "libshim_ui.so" "${2}"
+            ;;
+        vendor/lib/libcam.utils.sensorlistener.so)
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
+            "${PATCHELF}" --add-needed "libshim_gui.so" "${2}"
+            ;;
+        vendor/lib/libcam.camshot.so)
+            sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
+            ;;
     esac
 }
 

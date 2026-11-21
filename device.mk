@@ -154,6 +154,8 @@ PRODUCT_PACKAGES += \
     libgui_ext \
     libui_ext \
     libion_mtk \
+    libshim_ui \
+    libshim_gui \
     libshim_cutils \
     libshim_utils
 
@@ -216,6 +218,13 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic \
     com.android.future.usb.accessory \
     librs_jni
+
+# Camera
+PRODUCT_PACKAGES += \
+    Snap \
+    android.hardware.camera.provider@2.4-service \
+    android.hardware.camera.provider@2.4-impl-legacy \
+    libshim_camera
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE		:= a3300
