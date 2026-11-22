@@ -155,32 +155,6 @@ queryImageBitsPerPixel(
     int const imageFormat
 );
 
-
-/*****************************************************************************
- * @brief Query the image format constant.
- *
- * @details Given a MtkCameraParameters::PIXEL_FORMAT_xxx, return its
- * corresponding image format constant.
- *
- * @note
- *
- * @param[in] szPixelFormat: A null-terminated string for pixel format (i.e.
- * MtkCameraParameters::PIXEL_FORMAT_xxx)
- *
- * @return its corresponding image format.
- *
- ******************************************************************************/
-int
-queryImageFormat(
-    char const* szPixelFormat
-);
-
-/*****************************************************************************
- * @Dump the information of Image map.
- ******************************************************************************/
-void
-dumpMapInformation();
-
 /******************************************************************************
  *
  ******************************************************************************/
