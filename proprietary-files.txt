@@ -60,7 +60,7 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 -lib/libcam.camadapter.so:vendor/lib/libcam.camadapter.so
 -lib/libcam.campipe.so:vendor/lib/libcam.campipe.so
 -lib/libcam.camshot.so:vendor/lib/libcam.camshot.so
--lib/libcam.client.so:vendor/lib/libcam.client.so
+-lib/libcam.client.so:vendor/lib/libcam1client.so
 -lib/libcam.device1.so:vendor/lib/libcam.device1.so
 -lib/libcam.exif.so:vendor/lib/libcam.exif.so
 -lib/libcam.paramsmgr.so:vendor/lib/libcam.paramsmgr.so

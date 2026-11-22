@@ -1,0 +1,21 @@
+cc_library_shared {
+    name: "libcam.client",
+
+    srcs: ["StreamImgBuf.cpp"],
+
+    include_dirs: [
+        "system/media/camera/include",
+        "system/core/include",
+        "frameworks/native/libs/nativebase/include",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libdl",
+        "libcam1client",
+        "libcam_utils",
+    ],
+
+}

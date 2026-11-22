@@ -224,6 +224,7 @@ PRODUCT_PACKAGES += \
     Snap \
     android.hardware.camera.provider@2.4-service \
     android.hardware.camera.provider@2.4-impl-legacy \
+    libcam.client \
     libshim_camera
 
 # Device identifier. This must come after all inclusions

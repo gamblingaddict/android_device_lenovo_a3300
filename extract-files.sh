@@ -134,8 +134,9 @@ function blob_fixup() {
             "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
             "${PATCHELF}" --add-needed "libshim_camera.so" "${2}"
             ;;
-        vendor/lib/libcam.client.so)
+        vendor/lib/libcam1client.so)
             sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
+            "${PATCHELF}" --set-soname "libcam1client.so" "${2}"
             "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
             "${PATCHELF}" --add-needed "libshim_ui.so" "${2}"
             ;;
