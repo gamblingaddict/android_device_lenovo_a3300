@@ -47,6 +47,12 @@ cc_library_shared {
 }
 
 cc_library_shared {
+    name: "libshim_camera",
+    srcs: ["camera/parameters_shim.cpp"],
+    proprietary: true,
+}
+
+cc_library_shared {
     name: "libbluetoothdrv",
     srcs: ["audio.cpp"],
     shared_libs: ["libshim_log", "libshim_cutils", "libshim_utils", "libbt-vendor"],
