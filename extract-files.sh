@@ -149,6 +149,17 @@ function blob_fixup() {
             sed -i 's|_ZN7android6Thread3runEPKcij|_ZN7android6Bhread3runEPKcij|g' "${2}"
             "${PATCHELF}" --add-needed "libshim_utils.so" "${2}"
             ;;
+        vendor/lib/libcameracustom_a5.so)
+            "${PATCHELF}" --set-soname "libcameracustom_a5.so" "${2}"
+            ;;
+        vendor/lib/libcameracustom.so)
+            "${PATCHELF}" --add-needed "libcameracustom_a5.so" "${2}"
+            ;;
+        vendor/lib/libdpframework.so)
+            # set DT_SYMBOLIC so its tile_* calls bind to its own copies, not libcamdrv's
+            # (overwrites the redundant DT_FLAGS_1 dynamic entry; DT_FLAGS already has BIND_NOW)
+            patch_bytes "${2}" 0x47628 fbffff6f01000000 1000000000000000
+            ;;
     esac
 }
 

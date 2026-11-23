@@ -29,7 +29,7 @@ extern "C" {
 
     status_t _ZN7android19GraphicBufferMapper4lockEPK13native_handleiRKNS_4RectEPPv(
         GraphicBufferMapper* self, buffer_handle_t handle, int usage, const android::Rect& bounds, void** vaddr) {
-        return _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPv(
+        return _ZN7android19GraphicBufferMapper4lockEPK13native_handlejRKNS_4RectEPPvPiS9_(
             self, handle, (uint32_t)usage, bounds, vaddr, nullptr, nullptr);
     }
 

@@ -56,7 +56,7 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 -lib/lib3a.so:vendor/lib/lib3a.so
 -lib/lib3a_sample.so:vendor/lib/lib3a_sample.so
 -lib/libcamalgo.so:vendor/lib/libcamalgo.so
--lib/libcameracustom.so:vendor/lib/libcameracustom.so
+-lib/libcameracustom.so:vendor/lib/libcameracustom_a5.so
 -lib/libcam.camadapter.so:vendor/lib/libcam.camadapter.so
 -lib/libcam.campipe.so:vendor/lib/libcam.campipe.so
 -lib/libcam.camshot.so:vendor/lib/libcam.camshot.so
@@ -81,6 +81,9 @@ lib/libaudioutils.so:vendor/lib/libaudioutils.so
 -lib/libmpoencoder.so:vendor/lib/libmpoencoder.so
 -lib/libmtk_mmutils.so:vendor/lib/libmtk_mmutils.so
 -lib/libmtkjpeg.so:vendor/lib/libmtkjpeg.so
+
+# From huaqin82_tb_b2d_td-user LenovoA3300-GV A3300GV_A442_01_43_140826_ROW release-keys
+-lib/libcameracustom.so:vendor/lib/libcameracustom.so|93c3a980f37aed85dd96d562d45dd83b6fe886aa|9a38041d6d7d4eb67c4c02fbf80dc5fe34eea5a5
 
 # Firmware:
 etc/firmware/catcher_filter_1_wg_n.bin:vendor/firmw/catcher_filter_1_wg_n.bin
